@@ -269,7 +269,6 @@
             <div class="result-panel" id="panouRezultat">
                 <div id="textRezultat" style="line-height: 1.6; margin-bottom: 15px;"></div>
                 
-                <!-- Acest buton va fi configurat din script pentru a trimite mesajul text generat -->
                 <a href="#" id="whatsappLink" target="_blank" class="btn-whatsapp">
                     Trimite comanda pe WhatsApp
                 </a>
@@ -294,11 +293,9 @@
             let whatsappLink = document.getElementById("whatsappLink");
 
             if(lungime > 0) {
-                // Calcule logice estimate
-                let panouriNecesare = Math.ceil(lungime / 2); // Un panou are 2 metri lungime
+                let panouriNecesare = Math.ceil(lungime / 2);
                 let stalpiNecesari = panouriNecesare + 1;
                 
-                // Generăm textul vizual pentru client pe site
                 let textAfisat = "<strong>Configurație Calculată:</strong><br>" +
                                  "• Model ales: " + model + "<br>" +
                                  "• Lungime gard: " + lungime + " metri liniari<br>" +
@@ -307,11 +304,9 @@
                 
                 textRezultat.innerHTML = textAfisat;
                 
-                // Numarul tau de telefon in format international (Ex: pentru Romania pui 407xxxxxxxx)
-                // Poti inlocui numarul de mai jos direct cu numarul tau real
-                let numarTelefon = "40722000000"; 
+                // Numarul tau real din Franta este setat direct aici:
+                let numarTelefon = "33770391516"; 
                 
-                // Construim mesajul text codat pentru URL-ul de WhatsApp
                 let mesajWhatsApp = "Salut GardForm! Vreau o ofertă de preț pentru proiectul meu:\n\n" +
                                     "- Model matriță: " + model + "\n" +
                                     "- Lungime totală: " + lungime + " metri\n" +
@@ -319,10 +314,7 @@
                 
                 let urlWhatsApp = "https://wa.me/" + numarTelefon + "?text=" + encodeURIComponent(mesajWhatsApp);
                 
-                // Aplicăm linkul generat pe butonul verde
                 whatsappLink.href = urlWhatsApp;
-                
-                // Afișăm panoul de rezultat cu animație fluidă
                 panouRezultat.style.display = "block";
             } else {
                 alert("Te rugăm să introduci o lungime validă a gardului.");
