@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GardForm - Matrițe Profesionale pentru Garduri</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f7;
+            color: #1d1d1f;
+        }
+        header {
+            background-color: #111;
+            color: #fff;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
+        header p { margin: 5px 0 0 0; color: #86868b; }
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 30px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        .intro-text {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #424245;
+            border-left: 4px solid #0071e3;
+            padding-left: 15px;
+            margin-bottom: 40px;
+        }
+        .calc-box {
+            background: #fbfbfd;
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #d2d2d7;
+        }
+        input[type="number"] {
+            padding: 12px;
+            width: 120px;
+            border: 1px solid #d2d2d7;
+            border-radius: 6px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .btn-action {
+            background-color: #0071e3;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 500;
+        }
+        .btn-action:hover { background-color: #0077ed; }
+        .result-area {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8f4ff;
+            border-radius: 6px;
+            color: #0053a6;
+            font-weight: 500;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>GardForm</h1>
+        <p>Matrițe Profesionale pentru Garduri din Beton</p>
+    </header>
+
+    <div class="container">
+        <div class="intro-text">
+            Suntem specializați în proiectarea și fabricarea de matrițe de înaltă rezistență pentru garduri, stâlpi și elemente decorative din beton. Folosim materiale premium (ABS rezistent la impact, silicon flexibil și fibră de sticlă ranforsată) pentru a garanta o decojire ușoară și sute de cicluri de turnare fără deformare.
+        </div>
+
+        <div class="calc-box">
+            <h3>Sistem de calcul rapid pentru proiectul tău</h3>
+            <p>Introdu lungimea totală a gardului pe care vrei să îl construiești (în metri) pentru a afla necesarul estimativ de panouri și stâlpi:</p>
+            
+            <input type="number" id="lungimeGard" placeholder="Ex: 30" min="1">
+            <button class="btn-action" onclick="ruleazaCalcul()">Calculează</button>
+
+            <div class="result-area" id="panouRezultat"></div>
+        </div>
+    </div>
+
+    <script>
+        function ruleazaCalcul() {
+            let lungime = document.getElementById("lungimeGard").value;
+            let afisaj = document.getElementById("panouRezultat");
+            
+            if(lungime > 0) {
+                let panouri = Math.ceil(lungime / 2); // presupunem panou standard de 2m
+                let stalpi = panouri + 1;
+                
+                afisaj.style.display = "block";
+                afisaj.innerHTML = "Pentru un gard de " + lungime + " metri, sunt necesare aproximativ " + panouri + " panouri și " + stalpi + " stâlpi. Îți recomandăm un set de minim 2-3 matrițe de stâlp pentru o producție eficientă.";
+            } else {
+                afisaj.style.display = "block";
+                afisaj.style.background = "#ffebe6";
+                afisaj.style.color = "#ff3b30";
+                afisaj.innerHTML = "Te rugăm să introduci o lungime validă, mai mare decât 0.";
+            }
+        }
+    </script>
+
+</body>
+</html>
