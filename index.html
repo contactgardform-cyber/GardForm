@@ -3,72 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GardForm - Matrițe Profesionale pentru Garduri</title>
+    <title>GardForm - Matrițe Profesionale pentru Garduri din Beton</title>
     <style>
+        :root {
+            --bg-dark: #121214;
+            --bg-card: #1a1a1e;
+            --accent-blue: #0071e3;
+            --accent-green: #25d366;
+            --text-main: #f5f5f7;
+            --text-muted: #86868b;
+            --border-color: #2c2c32;
+        }
+
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f7;
-            color: #1d1d1f;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
         }
+
         header {
-            background-color: #111;
-            color: #fff;
-            padding: 30px 20px;
+            background: linear-gradient(180deg, #000000 0%, var(--bg-dark) 100%);
+            padding: 60px 20px;
             text-align: center;
+            border-bottom: 1px solid var(--border-color);
         }
-        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 1px; }
-        header p { margin: 5px 0 0 0; color: #86868b; }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+        header p {
+            margin: 10px 0 0 0;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+        }
+
         .container {
-            max-width: 900px;
+            max-width: 1100px;
             margin: 40px auto;
-            padding: 30px;
-            background: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            padding: 0 20px;
         }
-        .intro-text {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #424245;
-            border-left: 4px solid #0071e3;
+
+        /* SECTION TITLE */
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent-blue);
             padding-left: 15px;
-            margin-bottom: 40px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        .calc-box {
-            background: #fbfbfd;
+
+        /* PRODUCTS GRID */
+        .grid-produse {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .card-produs {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .card-produs:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-blue);
+        }
+
+        .produs-info {
             padding: 25px;
-            border-radius: 8px;
-            border: 1px solid #d2d2d7;
         }
-        input[type="number"] {
-            padding: 12px;
-            width: 120px;
-            border: 1px solid #d2d2d7;
+
+        .produs-info h3 {
+            margin: 0 0 10px 0;
+            font-size: 1.4rem;
+        }
+
+        .produs-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .produs-detalii {
+            font-size: 0.9rem;
+            background: rgba(255,255,255,0.03);
+            padding: 10px;
             border-radius: 6px;
-            font-size: 16px;
-            margin-right: 10px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255,255,255,0.05);
         }
-        .btn-action {
-            background-color: #0071e3;
+
+        /* CALCULATOR & ORDER SECTION */
+        .configuratior-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+        }
+
+        input[type="number"], select, input[type="text"] {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            background-color: #222226;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-blue);
+        }
+
+        .btn-calc {
+            background-color: var(--accent-blue);
             color: white;
-            padding: 12px 24px;
+            padding: 14px 28px;
             border: none;
             border-radius: 6px;
             cursor: pointer;
             font-size: 16px;
-            font-weight: 500;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
-        .btn-action:hover { background-color: #0077ed; }
-        .result-area {
-            margin-top: 20px;
-            padding: 15px;
-            background: #e8f4ff;
-            border-radius: 6px;
-            color: #0053a6;
-            font-weight: 500;
+
+        .btn-calc:hover { background-color: #0077ed; }
+
+        .result-panel {
+            margin-top: 25px;
+            padding: 20px;
+            background: rgba(0, 113, 227, 0.1);
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 0 8px 8px 0;
             display: none;
+        }
+
+        /* WHATSAPP BUTTON */
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            background-color: var(--accent-green);
+            color: white;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 15px;
+            text-decoration: none;
+        }
+        .btn-whatsapp:hover { background-color: #20ba5a; }
+
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -76,41 +197,135 @@
 
     <header>
         <h1>GardForm</h1>
-        <p>Matrițe Profesionale pentru Garduri din Beton</p>
+        <p>Producție Matrițe Profesionale din ABS și Silicon</p>
     </header>
 
     <div class="container">
-        <div class="intro-text">
-            Suntem specializați în proiectarea și fabricarea de matrițe de înaltă rezistență pentru garduri, stâlpi și elemente decorative din beton. Folosim materiale premium (ABS rezistent la impact, silicon flexibil și fibră de sticlă ranforsată) pentru a garanta o decojire ușoară și sute de cicluri de turnare fără deformare.
-        </div>
-
-        <div class="calc-box">
-            <h3>Sistem de calcul rapid pentru proiectul tău</h3>
-            <p>Introdu lungimea totală a gardului pe care vrei să îl construiești (în metri) pentru a afla necesarul estimativ de panouri și stâlpi:</p>
+        
+        <!-- CATALOG PRODUSE -->
+        <div class="section-title">Catalog Matrițe Premium</div>
+        <div class="grid-produse">
             
-            <input type="number" id="lungimeGard" placeholder="Ex: 30" min="1">
-            <button class="btn-action" onclick="ruleazaCalcul()">Calculează</button>
+            <!-- PRODUS 1 -->
+            <div class="card-produs">
+                <div class="produs-info">
+                    <h3>Matriță Panou „Piatră Spartă”</h3>
+                    <p>Cea mai vândută textură. Redă fidel aspectul pietrei naturale cioplite. Ideală pentru garduri rezidențiale elegante.</p>
+                    <div class="produs-detalii">
+                        <strong>Material:</strong> ABS Premium 4mm (rezistent la impact)<br>
+                        <strong>Dimensiuni standard:</strong> 200cm x 50cm
+                    </div>
+                </div>
+            </div>
 
-            <div class="result-area" id="panouRezultat"></div>
+            <!-- PRODUS 2 -->
+            <div class="card-produs">
+                <div class="produs-info">
+                    <h3>Matriță Panou „Cărămidă Clasică”</h3>
+                    <p>Un model tradițional care nu se demodează niciodată. Aliniere perfectă și finisaj curat la fiecare decofrare.</p>
+                    <div class="produs-detalii">
+                        <strong>Material:</strong> ABS Industrial ranforsat<br>
+                        <strong>Dimensiuni standard:</strong> 200cm x 50cm
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRODUS 3 -->
+            <div class="card-produs">
+                <div class="produs-info">
+                    <h3>Matriță Stâlp Simplu / Texturat</h3>
+                    <p>Sisteme complete de matrițe pentru stâlpi cu caneluri gata formate pentru culisarea perfectă a panourilor din beton.</p>
+                    <div class="produs-detalii">
+                        <strong>Material:</strong> ABS + Inserții metalice rigide<br>
+                        <strong>Înălțimi disponibile:</strong> 1.5m - 2.2m
+                    </div>
+                </div>
+            </div>
+
         </div>
+
+        <!-- CONFIGURATOR & CALCULATOR SCRIPT -->
+        <div class="section-title">Configurează Proiectul Tău</div>
+        <div class="configuratior-box">
+            <p style="color: var(--text-muted); margin-bottom: 25px;">Alege modelul preferat, introdu dimensiunile și trimite specificațiile direct pe WhatsApp pentru o ofertă personalizată.</p>
+            
+            <div class="form-group">
+                <label for="modelSelect">1. Selectează Modelul de Matriță:</label>
+                <select id="modelSelect">
+                    <option value="Piatră Spartă">Matriță Panou - Piatră Spartă</option>
+                    <option value="Cărămidă Clasică">Matriță Panou - Cărămidă Clasică</option>
+                    <option value="Stâlp Texturat">Matriță Stâlp cu Caneluri</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="lungimeInput">2. Lungimea totală a gardului dorit (metri liniari):</label>
+                <input type="number" id="lungimeInput" placeholder="Ex: 40" min="1">
+            </div>
+
+            <button class="btn-calc" onclick="calculeazaConfiguratie()">Calculează Necesarul</button>
+
+            <!-- ZONA DE REZULTAT CU BUTON DE WHATSAPP GENERAT DIN SCRIPT -->
+            <div class="result-panel" id="panouRezultat">
+                <div id="textRezultat" style="line-height: 1.6; margin-bottom: 15px;"></div>
+                
+                <!-- Acest buton va fi configurat din script pentru a trimite mesajul text generat -->
+                <a href="#" id="whatsappLink" target="_blank" class="btn-whatsapp">
+                    Trimite comanda pe WhatsApp
+                </a>
+            </div>
+
+        </div>
+
     </div>
 
+    <footer>
+        &copy; 2026 GardForm. Toate drepturile rezervate. Producție matrițe industriale de înaltă calitate.
+    </footer>
+
+    <!-- SCRIPT LOGICĂ CALCUL + GENERARE MESAJ AUTOMAT -->
     <script>
-        function ruleazaCalcul() {
-            let lungime = document.getElementById("lungimeGard").value;
-            let afisaj = document.getElementById("panouRezultat");
+        function calculeazaConfiguratie() {
+            let model = document.getElementById("modelSelect").value;
+            let lungime = document.getElementById("lungimeInput").value;
             
+            let panouRezultat = document.getElementById("panouRezultat");
+            let textRezultat = document.getElementById("textRezultat");
+            let whatsappLink = document.getElementById("whatsappLink");
+
             if(lungime > 0) {
-                let panouri = Math.ceil(lungime / 2); // presupunem panou standard de 2m
-                let stalpi = panouri + 1;
+                // Calcule logice estimate
+                let panouriNecesare = Math.ceil(lungime / 2); // Un panou are 2 metri lungime
+                let stalpiNecesari = panouriNecesare + 1;
                 
-                afisaj.style.display = "block";
-                afisaj.innerHTML = "Pentru un gard de " + lungime + " metri, sunt necesare aproximativ " + panouri + " panouri și " + stalpi + " stâlpi. Îți recomandăm un set de minim 2-3 matrițe de stâlp pentru o producție eficientă.";
+                // Generăm textul vizual pentru client pe site
+                let textAfisat = "<strong>Configurație Calculată:</strong><br>" +
+                                 "• Model ales: " + model + "<br>" +
+                                 "• Lungime gard: " + lungime + " metri liniari<br>" +
+                                 "• Structură estimată: " + panouriNecesare + " panouri și " + stalpiNecesari + " stâlpi.<br><br>" +
+                                 "<em>Apasă pe butonul de mai jos pentru a trimite aceste date direct către noi!</em>";
+                
+                textRezultat.innerHTML = textAfisat;
+                
+                // Numarul tau de telefon in format international (Ex: pentru Romania pui 407xxxxxxxx)
+                // Poti inlocui numarul de mai jos direct cu numarul tau real
+                let numarTelefon = "40722000000"; 
+                
+                // Construim mesajul text codat pentru URL-ul de WhatsApp
+                let mesajWhatsApp = "Salut GardForm! Vreau o ofertă de preț pentru proiectul meu:\n\n" +
+                                    "- Model matriță: " + model + "\n" +
+                                    "- Lungime totală: " + lungime + " metri\n" +
+                                    "- Estimare structură: " + panouriNecesare + " panouri / " + stalpiNecesari + " stâlpi.";
+                
+                let urlWhatsApp = "https://wa.me/" + numarTelefon + "?text=" + encodeURIComponent(mesajWhatsApp);
+                
+                // Aplicăm linkul generat pe butonul verde
+                whatsappLink.href = urlWhatsApp;
+                
+                // Afișăm panoul de rezultat cu animație fluidă
+                panouRezultat.style.display = "block";
             } else {
-                afisaj.style.display = "block";
-                afisaj.style.background = "#ffebe6";
-                afisaj.style.color = "#ff3b30";
-                afisaj.innerHTML = "Te rugăm să introduci o lungime validă, mai mare decât 0.";
+                alert("Te rugăm să introduci o lungime validă a gardului.");
             }
         }
     </script>
