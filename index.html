@@ -43,7 +43,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 12px 20px;
+            padding: 15px 20px;
         }
 
         .nav-container {
@@ -54,19 +54,22 @@
             align-items: center;
         }
 
-        /* STIL INDIVIDUAL PENTRU LOGO IMAGINE PNG */
-        .logo-container {
-            display: flex;
-            align-items: center;
+        /* LOGO TEXT STILIZAT (STÂNGA SUS) */
+        .logo-text-nav {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             text-decoration: none;
-            padding: 2px 0;
         }
 
-        .logo-img {
-            height: 45px;       /* Înălțimea logo-ului în bara de navigare */
-            width: auto;        /* Menține proporțiile originale pentru a nu deforma logo-ul */
-            display: block;
-            object-fit: contain;
+        .logo-text-nav .part-one {
+            color: #ffffff;
+        }
+
+        .logo-text-nav .part-two {
+            color: var(--accent-blue);
         }
 
         .nav-links {
@@ -87,27 +90,36 @@
             color: #fff;
         }
 
+        /* HEADER CU LOGO GRAFIC CENTRAL */
         header {
             background: linear-gradient(180deg, #000000 0%, var(--bg-dark) 100%);
-            padding: 60px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
 
-        header h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
-            margin: 0;
-            font-size: 3.5rem;
-            letter-spacing: 2px;
-            color: #fff;
-            text-transform: uppercase;
+        .header-logo-box {
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .header-logo-img {
+            height: 110px; /* Înălțime perfectă pentru logo-ul central */
+            width: auto;
+            display: block;
+            object-fit: contain;
+            background: #ffffff; /* Creează fundalul alb curat în jurul logo-ului din Canva */
+            padding: 12px 25px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
         }
 
         header p {
-            margin: 10px 0 0 0;
+            margin: 15px 0 0 0;
             color: var(--text-muted);
             font-size: 1.2rem;
+            font-weight: 500;
         }
 
         .container {
@@ -186,7 +198,7 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* CONFIGURATOR TASTATURĂ */
+        /* CONFIGURATOR BOX */
         .configuratior-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -263,7 +275,7 @@
         }
         .btn-whatsapp:hover { background-color: #20ba5a; }
 
-        /* PANOU CONTACT */
+        /* CONTACT BOX */
         .contact-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -309,12 +321,11 @@
 </head>
 <body>
 
-    <!-- MENIUL LIVE CU LOGO IMAGINE PNG -->
+    <!-- MENIUL CU TEXT STILIZAT ÎN STÂNGA -->
     <nav>
         <div class="nav-container">
-            <!-- Link-ul care înconjoară imaginea logo-ului -->
-            <a href="index.html" class="logo-container">
-                <img src="logo.png" alt="Logo GardForm" class="logo-img">
+            <a href="index.html" class="logo-text-nav">
+                <span class="part-one">Gard</span><span class="part-two">Form</span>
             </a>
             <div class="nav-links">
                 <a href="index.html" class="active">Calculator Gard</a>
@@ -323,14 +334,17 @@
         </div>
     </nav>
 
+    <!-- HEADER CU LOGO-UL GRAFIC CENTRAL -->
     <header>
-        <h1>GardForm</h1>
+        <div class="header-logo-box">
+            <img src="logo.png" alt="GardForm Logo" class="header-logo-img">
+        </div>
         <p>Matrițe Profesionale din Plastic ABS HIMPACT de Înaltă Rezistență</p>
     </header>
 
     <div class="container">
         
-        <!-- SPECIFICAȚII TEHNICE PRODUSE -->
+        <!-- SPECIFICAȚII TEHNICE -->
         <div class="section-title">Specificații Tehnice Matrițe</div>
         <div class="grid-produse">
             
@@ -374,7 +388,7 @@
 
         </div>
 
-        <!-- CONFIGURATOR CALCULATOR -->
+        <!-- CONFIGURATOR -->
         <div class="section-title">Calculator Tehnic Gard</div>
         <div class="configuratior-box">
             <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu specificațiile proiectului tău pentru a calcula cantitatea exactă de plăci de beton și stâlpi necesari.</p>
