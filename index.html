@@ -182,6 +182,41 @@
         }
         .btn-whatsapp:hover { background-color: #20ba5a; }
 
+        /* CONTACT BOX */
+        .contact-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .contact-info-item h4 {
+            margin: 0 0 10px 0;
+            color: var(--accent-blue);
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .contact-info-item p {
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text-main);
+        }
+
+        .contact-link {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-blue);
+        }
+        .contact-link:hover {
+            color: var(--accent-blue);
+        }
+
         footer {
             text-align: center;
             padding: 40px 20px;
@@ -241,7 +276,7 @@
 
         </div>
 
-        <!-- CONFIGURATOR MATRITE3D LOGIC -->
+        <!-- CONFIGURATOR -->
         <div class="section-title">Calculator Tehnic Gard</div>
         <div class="configuratior-box">
             <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu specificațiile proiectului tău pentru a calcula cantitatea exactă de plăci de beton și stâlpi necesari.</p>
@@ -269,13 +304,42 @@
 
             <button class="btn-calc" onclick="calculeazaConfiguratie()">Calculează Configurația</button>
 
-            <!-- REZULTAT -->
             <div class="result-panel" id="panouRezultat">
                 <div id="textRezultat" style="line-height: 1.6; margin-bottom: 15px;"></div>
                 
                 <a href="#" id="whatsappLink" target="_blank" class="btn-whatsapp">
                     Trimite necesarul pe WhatsApp
                 </a>
+            </div>
+
+        </div>
+
+        <!-- CONTACT & LOCALIZARE ACTUALIZATĂ -->
+        <div class="section-title">Contact & Localizare</div>
+        <div class="contact-box">
+            
+            <div class="contact-info-item">
+                <h4>Locație Producție</h4>
+                <p>
+                    Comuna Starchiojd<br>
+                    Județul Prahova, România
+                </p>
+            </div>
+
+            <div class="contact-info-item">
+                <h4>Suport Clienți</h4>
+                <p>
+                    Telefon / WA: <a href="https://wa.me/33770391516" target="_blank" class="contact-link">+33 7 70 39 15 16</a><br>
+                    E-mail: <a href="mailto:contact.gardform@gmail.com" class="contact-link">contact.gardform@gmail.com</a>
+                </p>
+            </div>
+
+            <div class="contact-info-item">
+                <h4>Program Operare</h4>
+                <p>
+                    Luni - Vineri: 08:00 - 17:00<br>
+                    Sâmbătă - Duminică: Închis
+                </p>
             </div>
 
         </div>
@@ -297,21 +361,18 @@
             let whatsappLink = document.getElementById("whatsappLink");
 
             if(lungime > 0) {
-                // O placă are lungimea standard de 2.0 metri (200 cm)
                 let traveeNecesare = Math.ceil(lungime / 2); 
                 let stalpiNecesari = traveeNecesare + 1;
                 
-                // Calculăm câte plăci intră pe înălțime pe fiecare secțiune (travee)
                 let placiPeInaltime = 0;
                 if(hPlaca === 50) {
                     placiPeInaltime = hGard === 1.5 ? 3 : 4;
                 } else if(hPlaca === 30) {
-                    placiPeInaltime = hGard === 1.5 ? 5 : Math.ceil(2.0 / 0.3); // 7 placi pentru 2m
+                    placiPeInaltime = hGard === 1.5 ? 5 : Math.ceil(2.0 / 0.3);
                 }
 
                 let totalPlaciDeTurnat = traveeNecesare * placiPeInaltime;
                 
-                // Generare text afișat pe ecran pentru client
                 let textAfisat = "<strong>Calcul Tehnic Structură Gard:</strong><br>" +
                                  "• Lungime totală: " + lungime + " metri liniari<br>" +
                                  "• Înălțime gard selectată: " + hGard + " metri<br>" +
@@ -323,7 +384,6 @@
                 
                 textRezultat.innerHTML = textAfisat;
                 
-                // Numărul tău salvat
                 let numarTelefon = "33770391516"; 
                 
                 let mesajWhatsApp = "Salut GardForm! Am generat configurarea pentru proiectul meu de gard:\n\n" +
