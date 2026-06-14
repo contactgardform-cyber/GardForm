@@ -11,10 +11,10 @@
     <meta name="author" content="GardForm">
     <meta name="robots" content="index, follow">
 
-    <!-- OPTIMIZARE PENTRU DISTRIBUIRE PE WHATSAPP -->
-    <meta property="og:title" content="GardForm - Matrițe & Garduri din Beton Prahova">
-    <meta property="og:description" content="Configurează-ți proiectul și calculează instant numărul de plăci și stâlpi de beton necesari pentru gardul tău.">
-    <meta property="og:type" content="website">
+    <!-- FONT PREMIUM PENTRU LOGO -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
 
     <style>
         :root {
@@ -35,7 +35,7 @@
             color: var(--text-main);
         }
 
-        /* NOUA BARĂ DE NAVIGARE (MENU) */
+        /* BARĂ DE NAVIGARE CU LOGO TEXT PREMIUM */
         nav {
             background-color: rgba(26, 26, 30, 0.8);
             backdrop-filter: blur(10px);
@@ -54,17 +54,28 @@
             align-items: center;
         }
 
-        .nav-logo {
-            font-weight: 700;
-            font-size: 1.2rem;
+        /* LOGO STILIZAT DIRECT DIN COD */
+        .logo-text {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900; /* Maxim de gros, stil industrial */
+            font-size: 1.5rem;
             letter-spacing: 1px;
-            color: #fff;
             text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .logo-text .part-one {
+            color: #ffffff;
+        }
+
+        .logo-text .part-two {
+            color: var(--accent-blue); /* Accentul albastru industrial */
         }
 
         .nav-links {
             display: flex;
             gap: 25px;
+            align-items: center;
         }
 
         .nav-links a {
@@ -87,8 +98,10 @@
         }
 
         header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
             margin: 0;
-            font-size: 3rem;
+            font-size: 3.5rem;
             letter-spacing: 2px;
             color: #fff;
             text-transform: uppercase;
@@ -299,10 +312,13 @@
 </head>
 <body>
 
-    <!-- MENIUL LIVE -->
+    <!-- MENIUL LIVE CU LOGO TEXT INCLUS -->
     <nav>
         <div class="nav-container">
-            <div class="nav-logo">GardForm</div>
+            <!-- AICI E NOUL LOGO STILIZAT CURAT -->
+            <a href="index.html" class="logo-text">
+                <span class="part-one">Gard</span><span class="part-two">Form</span>
+            </a>
             <div class="nav-links">
                 <a href="index.html" class="active">Calculator Gard</a>
                 <a href="despre.html">Despre Noi</a>
