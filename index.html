@@ -50,7 +50,6 @@
             padding: 0 20px;
         }
 
-        /* SECTION TITLE */
         .section-title {
             font-size: 1.8rem;
             margin-bottom: 25px;
@@ -106,7 +105,7 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* CALCULATOR & ORDER SECTION */
+        /* CONFIGURATOR BOX */
         .configuratior-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -125,7 +124,7 @@
             font-weight: 500;
         }
 
-        input[type="number"], select, input[type="text"] {
+        input[type="number"], select {
             width: 100%;
             max-width: 400px;
             padding: 12px;
@@ -166,7 +165,6 @@
             display: none;
         }
 
-        /* WHATSAPP BUTTON */
         .btn-whatsapp {
             display: inline-flex;
             align-items: center;
@@ -197,80 +195,86 @@
 
     <header>
         <h1>GardForm</h1>
-        <p>Producție Matrițe Profesionale din ABS și Silicon</p>
+        <p>Matrițe Profesionale din Plastic ABS HIMPACT de Înaltă Rezistență</p>
     </header>
 
     <div class="container">
         
         <!-- CATALOG PRODUSE -->
-        <div class="section-title">Catalog Matrițe Premium</div>
+        <div class="section-title">Specificații Tehnice Matrițe</div>
         <div class="grid-produse">
             
-            <!-- PRODUS 1 -->
             <div class="card-produs">
                 <div class="produs-info">
-                    <h3>Matriță Panou „Piatră Spartă”</h3>
-                    <p>Cea mai vândută textură. Redă fidel aspectul pietrei naturale cioplite. Ideală pentru garduri rezidențiale elegante.</p>
+                    <h3>Matrițe Panou (Plăci) - Tip 50cm</h3>
+                    <p>Ideale pentru texturi masive precum Piatră Spartă, Piatră-Val sau Cărămidă Clasică. Oferă finisaj impecabil și decofrare rapidă.</p>
                     <div class="produs-detalii">
-                        <strong>Material:</strong> ABS Premium 4mm (rezistent la impact)<br>
-                        <strong>Dimensiuni standard:</strong> 200cm x 50cm
+                        <strong>Material:</strong> Plastic ABS Himpact (4mm)<br>
+                        <strong>Dimensiuni piesă turnată:</strong> 200cm x 50cm<br>
+                        <strong>Grosime placă beton:</strong> 4 cm
                     </div>
                 </div>
             </div>
 
-            <!-- PRODUS 2 -->
             <div class="card-produs">
                 <div class="produs-info">
-                    <h3>Matriță Panou „Cărămidă Clasică”</h3>
-                    <p>Un model tradițional care nu se demodează niciodată. Aliniere perfectă și finisaj curat la fiecare decofrare.</p>
+                    <h3>Matrițe Panou (Plăci) - Tip 30cm</h3>
+                    <p>Potrivite pentru modele moderne liniare sau tip pătrățele (M5 - M14). Permit o modularitate crescută pe înălțime.</p>
+                    <div class="produs-detalii">
+                        <strong>Material:</strong> Plastic ABS Himpact (4mm)<br>
+                        <strong>Dimensiuni piesă turnată:</strong> 200cm x 30cm<br>
+                        <strong>Grosime placă beton:</strong> 4 cm
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-produs">
+                <div class="produs-info">
+                    <h3>Sisteme Matrițe Stâlpi</h3>
+                    <p>Matrițe speciale cu caneluri integrate pentru culisarea perfectă a plăcilor de beton cu grosime de 4 cm.</p>
                     <div class="produs-detalii">
                         <strong>Material:</strong> ABS Industrial ranforsat<br>
-                        <strong>Dimensiuni standard:</strong> 200cm x 50cm
-                    </div>
-                </div>
-            </div>
-
-            <!-- PRODUS 3 -->
-            <div class="card-produs">
-                <div class="produs-info">
-                    <h3>Matriță Stâlp Simplu / Texturat</h3>
-                    <p>Sisteme complete de matrițe pentru stâlpi cu caneluri gata formate pentru culisarea perfectă a panourilor din beton.</p>
-                    <div class="produs-detalii">
-                        <strong>Material:</strong> ABS + Inserții metalice rigide<br>
-                        <strong>Înălțimi disponibile:</strong> 1.5m - 2.2m
+                        <strong>Compatibilitate înălțimi:</strong> 1.5m - 2.2m
                     </div>
                 </div>
             </div>
 
         </div>
 
-        <!-- CONFIGURATOR & CALCULATOR SCRIPT -->
-        <div class="section-title">Configurează Proiectul Tău</div>
+        <!-- CONFIGURATOR MATRITE3D LOGIC -->
+        <div class="section-title">Calculator Tehnic Gard</div>
         <div class="configuratior-box">
-            <p style="color: var(--text-muted); margin-bottom: 25px;">Alege modelul preferat, introdu dimensiunile și trimite specificațiile direct pe WhatsApp pentru o ofertă personalizată.</p>
+            <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu specificațiile proiectului tău pentru a calcula cantitatea exactă de plăci de beton și stâlpi necesari.</p>
             
             <div class="form-group">
-                <label for="modelSelect">1. Selectează Modelul de Matriță:</label>
-                <select id="modelSelect">
-                    <option value="Piatră Spartă">Matriță Panou - Piatră Spartă</option>
-                    <option value="Cărămidă Clasică">Matriță Panou - Cărămidă Clasică</option>
-                    <option value="Stâlp Texturat">Matriță Stâlp cu Caneluri</option>
+                <label for="tipPlaca">1. Alege dimensiunea pe înălțime a plăcii (matriței):</label>
+                <select id="tipPlaca">
+                    <option value="50">Matriță Clasică (Înălțime placă: 50 cm)</option>
+                    <option value="30">Matriță Îngustă (Înălțime placă: 30 cm)</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="lungimeInput">2. Lungimea totală a gardului dorit (metri liniari):</label>
-                <input type="number" id="lungimeInput" placeholder="Ex: 40" min="1">
+                <label for="inaltimeGard">2. Selectează înălțimea totală a gardului dorit:</label>
+                <select id="inaltimeGard">
+                    <option value="1.5">1.5 Metri Înălțime</option>
+                    <option value="2.0">2.0 Metri Înălțime</option>
+                </select>
             </div>
 
-            <button class="btn-calc" onclick="calculeazaConfiguratie()">Calculează Necesarul</button>
+            <div class="form-group">
+                <label for="lungimeInput">3. Lungimea totală a gardului (metri liniari):</label>
+                <input type="number" id="lungimeInput" placeholder="Ex: 20" min="1">
+            </div>
 
-            <!-- ZONA DE REZULTAT CU BUTON DE WHATSAPP GENERAT DIN SCRIPT -->
+            <button class="btn-calc" onclick="calculeazaConfiguratie()">Calculează Configurația</button>
+
+            <!-- REZULTAT -->
             <div class="result-panel" id="panouRezultat">
                 <div id="textRezultat" style="line-height: 1.6; margin-bottom: 15px;"></div>
                 
                 <a href="#" id="whatsappLink" target="_blank" class="btn-whatsapp">
-                    Trimite comanda pe WhatsApp
+                    Trimite necesarul pe WhatsApp
                 </a>
             </div>
 
@@ -279,45 +283,62 @@
     </div>
 
     <footer>
-        &copy; 2026 GardForm. Toate drepturile rezervate. Producție matrițe industriale de înaltă calitate.
+        &copy; 2026 GardForm. Toate drepturile rezervate. Sisteme profesionale bazate pe standarde industriale ABS Himpact.
     </footer>
 
-    <!-- SCRIPT LOGICĂ CALCUL + GENERARE MESAJ AUTOMAT -->
     <script>
         function calculeazaConfiguratie() {
-            let model = document.getElementById("modelSelect").value;
-            let lungime = document.getElementById("lungimeInput").value;
+            let hPlaca = parseInt(document.getElementById("tipPlaca").value);
+            let hGard = parseFloat(document.getElementById("inaltimeGard").value);
+            let lungime = parseFloat(document.getElementById("lungimeInput").value);
             
             let panouRezultat = document.getElementById("panouRezultat");
             let textRezultat = document.getElementById("textRezultat");
             let whatsappLink = document.getElementById("whatsappLink");
 
             if(lungime > 0) {
-                let panouriNecesare = Math.ceil(lungime / 2);
-                let stalpiNecesari = panouriNecesare + 1;
+                // O placă are lungimea standard de 2.0 metri (200 cm)
+                let traveeNecesare = Math.ceil(lungime / 2); 
+                let stalpiNecesari = traveeNecesare + 1;
                 
-                let textAfisat = "<strong>Configurație Calculată:</strong><br>" +
-                                 "• Model ales: " + model + "<br>" +
-                                 "• Lungime gard: " + lungime + " metri liniari<br>" +
-                                 "• Structură estimată: " + panouriNecesare + " panouri și " + stalpiNecesari + " stâlpi.<br><br>" +
-                                 "<em>Apasă pe butonul de mai jos pentru a trimite aceste date direct către noi!</em>";
+                // Calculăm câte plăci intră pe înălțime pe fiecare secțiune (travee)
+                let placiPeInaltime = 0;
+                if(hPlaca === 50) {
+                    placiPeInaltime = hGard === 1.5 ? 3 : 4;
+                } else if(hPlaca === 30) {
+                    placiPeInaltime = hGard === 1.5 ? 5 : Math.ceil(2.0 / 0.3); // 7 placi pentru 2m
+                }
+
+                let totalPlaciDeTurnat = traveeNecesare * placiPeInaltime;
+                
+                // Generare text afișat pe ecran pentru client
+                let textAfisat = "<strong>Calcul Tehnic Structură Gard:</strong><br>" +
+                                 "• Lungime totală: " + lungime + " metri liniari<br>" +
+                                 "• Înălțime gard selectată: " + hGard + " metri<br>" +
+                                 "• Tip matriță folosită: Placă de " + hPlaca + " cm înălțime (grosime 4cm)<br>" +
+                                 "• Plăci suprapuse pe fiecare secțiune: " + placiPeInaltime + " bucăți<br><br>" +
+                                 "<strong>TOTAL NECESAR ELEMENTE DE TURNAT:</strong><br>" +
+                                 "👉 <strong>" + totalPlaciDeTurnat + " Plăci de beton</strong> (200x" + hPlaca + " cm)<br>" +
+                                 "👉 <strong>" + stalpiNecesari + " Stâlpi de susținere</strong> cu caneluri";
                 
                 textRezultat.innerHTML = textAfisat;
                 
-                // Numarul tau real din Franta este setat direct aici:
+                // Numărul tău salvat
                 let numarTelefon = "33770391516"; 
                 
-                let mesajWhatsApp = "Salut GardForm! Vreau o ofertă de preț pentru proiectul meu:\n\n" +
-                                    "- Model matriță: " + model + "\n" +
-                                    "- Lungime totală: " + lungime + " metri\n" +
-                                    "- Estimare structură: " + panouriNecesare + " panouri / " + stalpiNecesari + " stâlpi.";
+                let mesajWhatsApp = "Salut GardForm! Am generat configurarea pentru proiectul meu de gard:\n\n" +
+                                    "- Lungime gard: " + lungime + " metri\n" +
+                                    "- Înălțime gard: " + hGard + " metri\n" +
+                                    "- Tip matriță: Placă " + hPlaca + " cm (ABS 4mm)\n" +
+                                    "- Total plăci necesare: " + totalPlaciDeTurnat + " bucăți\n" +
+                                    "- Total stâlpi necesari: " + stalpiNecesari + " bucăți\n\nVreau o ofertă de preț!";
                 
                 let urlWhatsApp = "https://wa.me/" + numarTelefon + "?text=" + encodeURIComponent(mesajWhatsApp);
                 
                 whatsappLink.href = urlWhatsApp;
                 panouRezultat.style.display = "block";
             } else {
-                alert("Te rugăm să introduci o lungime validă a gardului.");
+                alert("Te rugăm să introduci o lungime validă.");
             }
         }
     </script>
