@@ -11,7 +11,7 @@
     <meta name="author" content="GardForm">
     <meta name="robots" content="index, follow">
 
-    <!-- FONT PREMIUM PENTRU LOGO -->
+    <!-- FONT PREMIUM PENTRU PAGINĂ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
@@ -35,7 +35,7 @@
             color: var(--text-main);
         }
 
-        /* BARĂ DE NAVIGARE CU LOGO TEXT PREMIUM */
+        /* BARĂ DE NAVIGARE */
         nav {
             background-color: rgba(26, 26, 30, 0.8);
             backdrop-filter: blur(10px);
@@ -43,7 +43,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            padding: 15px 20px;
+            padding: 12px 20px;
         }
 
         .nav-container {
@@ -54,22 +54,19 @@
             align-items: center;
         }
 
-        /* LOGO STILIZAT DIRECT DIN COD */
-        .logo-text {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 900; /* Maxim de gros, stil industrial */
-            font-size: 1.5rem;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        /* STIL INDIVIDUAL PENTRU LOGO IMAGINE PNG */
+        .logo-container {
+            display: flex;
+            align-items: center;
             text-decoration: none;
+            padding: 2px 0;
         }
 
-        .logo-text .part-one {
-            color: #ffffff;
-        }
-
-        .logo-text .part-two {
-            color: var(--accent-blue); /* Accentul albastru industrial */
+        .logo-img {
+            height: 45px;       /* Înălțimea logo-ului în bara de navigare */
+            width: auto;        /* Menține proporțiile originale pentru a nu deforma logo-ul */
+            display: block;
+            object-fit: contain;
         }
 
         .nav-links {
@@ -128,7 +125,7 @@
             letter-spacing: 1px;
         }
 
-        /* PRODUCTS GRID */
+        /* GRILĂ PRODUSE */
         .grid-produse {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -189,7 +186,7 @@
             border: 1px solid rgba(255,255,255,0.05);
         }
 
-        /* CONFIGURATOR BOX */
+        /* CONFIGURATOR TASTATURĂ */
         .configuratior-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -266,7 +263,7 @@
         }
         .btn-whatsapp:hover { background-color: #20ba5a; }
 
-        /* CONTACT BOX */
+        /* PANOU CONTACT */
         .contact-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -312,12 +309,12 @@
 </head>
 <body>
 
-    <!-- MENIUL LIVE CU LOGO TEXT INCLUS -->
+    <!-- MENIUL LIVE CU LOGO IMAGINE PNG -->
     <nav>
         <div class="nav-container">
-            <!-- AICI E NOUL LOGO STILIZAT CURAT -->
-            <a href="index.html" class="logo-text">
-                <span class="part-one">Gard</span><span class="part-two">Form</span>
+            <!-- Link-ul care înconjoară imaginea logo-ului -->
+            <a href="index.html" class="logo-container">
+                <img src="logo.png" alt="Logo GardForm" class="logo-img">
             </a>
             <div class="nav-links">
                 <a href="index.html" class="active">Calculator Gard</a>
@@ -333,7 +330,7 @@
 
     <div class="container">
         
-        <!-- CATALOG PRODUSE -->
+        <!-- SPECIFICAȚII TEHNICE PRODUSE -->
         <div class="section-title">Specificații Tehnice Matrițe</div>
         <div class="grid-produse">
             
@@ -377,7 +374,7 @@
 
         </div>
 
-        <!-- CONFIGURATOR -->
+        <!-- CONFIGURATOR CALCULATOR -->
         <div class="section-title">Calculator Tehnic Gard</div>
         <div class="configuratior-box">
             <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu specificațiile proiectului tău pentru a calcula cantitatea exactă de plăci de beton și stâlpi necesari.</p>
