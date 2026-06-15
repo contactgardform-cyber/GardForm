@@ -6,7 +6,7 @@
     
     <!-- OPTIMIZARE SEO PENTRU GOOGLE -->
     <title>GardForm - Producător Garduri din Beton Starchiojd, Prahova</title>
-    <meta name="description" content="GardForm produce garduri din beton premium, turnate în matrițe ABS de înaltă definiție în Starchiojd, Prahova. Calculează necesarul și transportul online!">
+    <meta name="description" content="GardForm produce garduri din beton premium, turnate în matrițe ABS de înaltă definiție în Starchiojd, Prahova. Calculează necesarul, prețul și transportul online!">
     <meta name="keywords" content="garduri beton prahova, placi beton gard, garduri starchiojd, productie garduri, montaj gard beton, pret gard beton">
     <meta name="author" content="GardForm">
     <meta name="robots" content="index, follow">
@@ -132,7 +132,7 @@
             letter-spacing: 1px;
         }
 
-        /* EFFECTE PREMIUM DE ANIMAȚIE (FADE-IN) */
+        /* EFECTE PREMIUM DE ANIMAȚIE (FADE-IN) */
         .fade-in-section {
             opacity: 0;
             transform: translateY(30px);
@@ -225,7 +225,7 @@
         
         .result-panel { 
             margin-top: 25px; 
-            padding: 20px; 
+            padding: 25px; 
             background: rgba(0, 113, 227, 0.1); 
             border-left: 4px solid var(--accent-blue); 
             border-radius: 0 8px 8px 0; 
@@ -238,7 +238,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .btn-whatsapp { display: inline-flex; align-items: center; background-color: var(--accent-green); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-top: 15px; text-decoration: none; transition: background-color 0.3s ease; }
+        .btn-whatsapp { display: inline-flex; align-items: center; background-color: var(--accent-green); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-top: 20px; text-decoration: none; transition: background-color 0.3s ease; }
         .btn-whatsapp:hover { background-color: #20ba5a; }
 
         /* SECȚIUNE RECENZII CLIENȚI */
@@ -505,11 +505,11 @@
             </div>
         </div>
 
-        <!-- 2. CALCULATOR TEHNIC GARD -->
+        <!-- 2. CALCULATOR TEHNIC GARD CU DEVIZ TOTAL -->
         <div class="fade-in-section">
-            <div class="section-title">Calculator Structură & Transport</div>
+            <div class="section-title">Calculator Structură & Preț Complet</div>
             <div class="configuratior-box">
-                <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu dimensiunile curții tale pentru a calcula numărul necesar de plăci de beton, stâlpi și costul estimativ al livrării din Starchiojd.</p>
+                <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu dimensiunile curții tale pentru a calcula numărul necesar de plăci de beton, stâlpi, costul materialelor și livrarea din Starchiojd.</p>
                 
                 <div class="form-group">
                     <label for="tipPlaca">1. Alege modelul/înălțimea plăcii de gard:</label>
@@ -532,7 +532,6 @@
                     <input type="number" id="lungimeInput" placeholder="Ex: 20" min="1">
                 </div>
 
-                <!-- SELECTOR TIMP LOGISTICĂ SPECIALIZATĂ (GARDURI BETON) -->
                 <div class="form-group">
                     <label for="regiuneLivrare">4. Regiunea / Tipul de livrare dorit:</label>
                     <select id="regiuneLivrare">
@@ -542,7 +541,7 @@
                     </select>
                 </div>
 
-                <button class="btn-calc" onclick="calculeazaConfiguratie()">Calculează Configurația</button>
+                <button class="btn-calc" onclick="calculeazaConfiguratie()">Calculează Configurația & Prețul</button>
 
                 <div class="result-panel" id="panouRezultat">
                     <div id="textRezultat" style="line-height: 1.6; margin-bottom: 15px;"></div>
@@ -692,28 +691,19 @@
                 return;
             }
 
-            let reviewNou = {
-                nume: nume,
-                nota: nota,
-                text: text
-            };
-
+            let reviewNou = { nume: nume, nota: nota, text: text };
             let istoricReviews = JSON.parse(localStorage.getItem("gardform_reviews")) || [];
             istoricReviews.push(reviewNou);
-            
             localStorage.setItem("gardform_reviews", JSON.stringify(istoricReviews));
 
             afiseazaReviewsSalvate();
-
             document.getElementById("numeReview").value = "";
             document.getElementById("textReview").value = "";
-
             alert("Mulțumim! Recenzia ta a fost trimisă și salvată cu succes.");
         }
 
         function afiseazaReviewsSalvate() {
             let container = document.getElementById("reviewsContainer");
-            
             container.innerHTML = `
                 <div class="card-review">
                     <div class="stars">★★★★★</div>
@@ -733,26 +723,27 @@
             `;
 
             let istoricReviews = JSON.parse(localStorage.getItem("gardform_reviews")) || [];
-            
             istoricReviews.forEach(function(item) {
                 let cardNou = document.createElement("div");
                 cardNou.className = "card-review";
                 cardNou.style.borderLeft = "4px solid #ff9f0a"; 
-
                 cardNou.innerHTML = `
                     <div class="stars">${item.nota}</div>
                     <div class="review-text">"${item.text}"</div>
-                    <div class="review-author">
-                        ${item.nume}
-                        <span class="review-asteptare">În așteptare aprobare</span>
-                    </div>
+                    <div class="review-author">${item.nume}<span class="review-asteptare">În așteptare aprobare</span></div>
                 `;
                 container.appendChild(cardNou);
             });
         }
 
-        // SCRIPT CONFIGURATOR INTELIGENT ACCENTUAT PE VOLUMUL DE MATERIE GREA
+        // ==========================================
+        // CALCULATOR INTELIGENT CU PREȚURI DINAMICE
+        // ==========================================
         function calculeazaConfiguratie() {
+            // MODIFICĂ AICI PRETURILE DE PRODUCȚIE CÂND TE HOTĂRĂȘTI:
+            let PRET_PER_PLACA = 60;  // Preț informativ pe placă (Ex: 60 RON)
+            let PRET_PER_STALP = 80;  // Preț informativ pe stâlp (Ex: 80 RON)
+
             let hPlaca = parseInt(document.getElementById("tipPlaca").value);
             let hGard = parseFloat(document.getElementById("inaltimeGard").value);
             let lungime = parseFloat(document.getElementById("lungimeInput").value);
@@ -768,14 +759,19 @@
                 let traveeNecesare = Math.ceil(lungime / 2); 
                 let stalpiNecesari = traveeNecesare + 1;
                 
-                // Calculul exact al plăcilor pe înălțime
+                // Calculul plăcilor pe înălțime
                 let placiPeInaltime = (hPlaca === 50) ? (hGard === 1.5 ? 3 : 4) : (hGard === 1.5 ? 5 : 7);
                 let totalPlaciDeTurnat = traveeNecesare * placiPeInaltime;
                 
+                // CALCULUL COSTURILOR PENTRU MATERIALE
+                let costTotalPlaci = totalPlaciDeTurnat * PRET_PER_PLACA;
+                let costTotalStalpi = stalpiNecesari * PRET_PER_STALP;
+                let costTotalMateriale = costTotalPlaci + costTotalStalpi;
+                
+                // CALCULUL TRANSPORTULUI INTELIGENT
                 let costTransport = 0;
                 let tipTransportText = "";
 
-                // LOGICA DE RECOMANDARE AUTOMATĂ A TRANSPORTULUI
                 if (optiuneSelectata === "sediu") {
                     costTransport = 0;
                     tipTransportText = "Ridicare personală din Starchiojd (0 RON)";
@@ -783,39 +779,45 @@
                     costTransport = 200;
                     tipTransportText = "Livrare locală în Prahova (Estimativ 200 RON)";
                 } else if (optiuneSelectata === "tara") {
-                    // Sistemul alege automat între volum mic/mediu sau transport greu (peste 60 plăci)
+                    // Dacă proiectul depășește 60 de plăci, sistemul marchează automat ca Transport Greu
                     if (totalPlaciDeTurnat <= 60) {
-                        costTransport = 1200; // Poate fi lăsat la 1200 implicit sau adaptat
+                        costTransport = 1200; 
                         tipTransportText = "Livrare în toată țara pentru Garduri/Plăci Beton (Transport Mediu - Estimativ 1200 RON)";
                     } else {
                         costTransport = 1200; 
                         tipTransportText = "Livrare în toată țara pentru Garduri/Plăci Beton (Transport Greu Camion - Estimativ 1200 RON)";
                     }
                 }
+
+                // TOTALUL GENERAL PE CARE IL VEDE CLIENTUL
+                let totalGeneralProiect = costTotalMateriale + costTransport;
                 
-                // Afișarea structurii și detaliilor proiectului în panou
-                let textAfisat = "<strong>Calcul Structură Gard & Estimare Livrare:</strong><br>" +
+                // Afișarea raportului complet cu prețuri pe site
+                let textAfisat = "<strong>Calcul Deviz Estimativ Gard:</strong><br>" +
                                  "• Lungime totală gard: " + lungime + " metri liniari<br>" +
                                  "• Înălțime selectată de la sol: " + hGard + " metri<br>" +
-                                 "• Dimensiune panou folosit: Plăci din beton de " + hPlaca + " cm<br><br>" +
-                                 "<strong>COMPONENTE PROIECT REZULTATE:</strong><br>" +
-                                 "👉 <strong>" + totalPlaciDeTurnat + " Plăci de beton armat</strong> (200x" + hPlaca + " cm)<br>" +
-                                 "👉 <strong>" + stalpiNecesari + " Stâlpi din beton structurați</strong><br><br>" +
-                                 "🚚 <strong>Logisitică selectată:</strong> " + tipTransportText + "<br>" +
-                                 "💰 <strong>Cost livrare estimativ: " + costTransport + " RON</strong><br>" +
-                                 "<small style='color:var(--text-muted);'>(*Costul a fost verificat automat de sistem în funcție de volumul total de marfă)</small>";
+                                 "• Model panou: Plăci din beton de " + hPlaca + " cm<br><br>" +
+                                 "<strong>DETALIERI COSTURI MATERIALE:</strong><br>" +
+                                 "👉 " + totalPlaciDeTurnat + " Plăci de beton x " + PRET_PER_PLACA + " RON = <strong>" + costTotalPlaci + " RON</strong><br>" +
+                                 "👉 " + stalpiNecesari + " Stâlpi din beton x " + PRET_PER_STALP + " RON = <strong>" + costTotalStalpi + " RON</strong><br>" +
+                                 "🧱 Total Materiale Structură: <strong>" + costTotalMateriale + " RON</strong><br><br>" +
+                                 "🚚 <strong>Logisitică:</strong> " + tipTransportText + " = <strong>" + costTransport + " RON</strong><br><br>" +
+                                 "<span style='font-size: 1.35rem; color: #fff;'>💰 <strong>TOTAL DE PLATĂ: " + totalGeneralProiect + " RON</strong></span><br>" +
+                                 "<small style='color:var(--text-muted);'>(*Prețul include materialele premium și livrarea directă din fabrică)</small>";
                 
                 textRezultat.innerHTML = textAfisat;
                 
-                // Configurare mesaj securizat pentru WhatsApp Link
+                // Configurare mesaj text formatat pentru WhatsApp Link
                 let numarTelefon = "33770391516";
-                let mesajWhatsApp = "Salut GardForm! Am generat o configurare de gard din beton pe site:\n\n" +
+                let mesajWhatsApp = "Salut GardForm! Am generat o configurație și sunt de acord cu prețul estimat de pe site:\n\n" +
                                     "- Lungime proiect: " + lungime + " metri liniari\n" +
-                                    "- Înălțime selectată: " + hGard + " metri\n" +
-                                    "- Tip panouri: Plăci de " + hPlaca + " cm\n" +
+                                    "- Înălțime selectată: " + hGard + " metri (Panouri de " + hPlaca + " cm)\n" +
                                     "- Necesar calculat: " + totalPlaciDeTurnat + " plăci și " + stalpiNecesari + " stâlpi\n" +
-                                    "- Opțiune transport: " + tipTransportText + "\n" +
-                                    "- Cost estimat transport: " + costTransport + " RON\n\nAștept oferta finală de preț!";
+                                    "- Cost Materiale: " + costTotalMateriale + " RON\n" +
+                                    "- Transport: " + tipTransportText + " (" + costTransport + " RON)\n" +
+                                    "----------------------------------\n" +
+                                    " TOTAL ESTIMAT GENERAL: " + totalGeneralProiect + " RON\n\n" +
+                                    "Vreau să stabilim detaliile pentru lansarea comenzii!";
                 
                 whatsappLink.href = "https://wa.me/" + numarTelefon + "?text=" + encodeURIComponent(mesajWhatsApp);
                 panouRezultat.style.display = "block";
