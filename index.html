@@ -85,7 +85,7 @@
             color: #fff;
         }
 
-        /* HEADER OPTIMIZAT - FĂRĂ FUNDAL ALB LA LOGO */
+        /* HEADER OPTIMIZAT */
         header {
             background: linear-gradient(180deg, #000000 0%, var(--bg-dark) 100%);
             padding: 60px 20px;
@@ -105,11 +105,7 @@
             width: auto;
             display: block;
             object-fit: contain;
-            background-color: transparent !important;
             background: transparent !important;
-            padding: 0;
-            border-radius: 0;
-            box-shadow: none;
             filter: drop-shadow(0px 4px 12px rgba(255, 255, 255, 0.08)); 
         }
 
@@ -178,6 +174,43 @@
         .produs-info p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
         .produs-detalii { font-size: 0.9rem; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 6px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.05); }
 
+        /* CONFIGURATOR BOX */
+        .configuratior-box {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            padding: 35px;
+            border-radius: 12px;
+            margin-bottom: 60px;
+        }
+
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
+        
+        input[type="number"], select, input[type="text"] {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            background-color: #222226;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: #fff;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        input:focus, select:focus { 
+            outline: none; 
+            border-color: var(--accent-blue); 
+            box-shadow: 0 0 8px rgba(0, 113, 227, 0.4);
+        }
+
+        .btn-calc { background-color: var(--accent-blue); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-calc:hover { background-color: #0077ed; }
+        .result-panel { margin-top: 25px; padding: 20px; background: rgba(0, 113, 227, 0.1); border-left: 4px solid var(--accent-blue); border-radius: 0 8px 8px 0; display: none; }
+        .btn-whatsapp { display: inline-flex; align-items: center; background-color: var(--accent-green); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-top: 15px; text-decoration: none; }
+        .btn-whatsapp:hover { background-color: #20ba5a; }
+
         /* SECȚIUNE RECENZII CLIENȚI */
         .grid-reviews {
             display: grid;
@@ -237,7 +270,7 @@
             margin-left: auto;
         }
 
-        /* FORMULAR ADĂUGARE REVIW (PROPRIU) */
+        /* FORMULAR ADĂUGARE REVIEW CU DESIGN STYLIZAT LA INPUT */
         .add-review-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -248,85 +281,86 @@
         }
 
         .add-review-box h4 {
-            margin: 0 0 15px 0;
+            margin: 0 0 20px 0;
             font-size: 1.2rem;
             color: #fff;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Design îmbunătățit special pentru input-ul de nume */
+        .input-nume-premium {
+            width: 100%;
+            max-width: 100% !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            background-color: #1e1e24 !important;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+        }
+        
+        .input-nume-premium::placeholder {
+            color: var(--text-muted);
+            font-style: cubic-bezier(0.075, 0.82, 0.165, 1);
+            font-size: 0.95rem;
         }
 
         .rating-select {
             display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
+            gap: 12px;
+            margin-bottom: 20px;
             align-items: center;
+        }
+
+        .rating-select label {
+            font-weight: 500;
+            color: var(--text-main);
         }
 
         .rating-select select {
             width: auto;
             padding: 8px 12px;
+            border: 1px solid var(--border-color);
         }
 
         textarea {
             width: 100%;
-            height: 100px;
-            background-color: #222226;
-            border: 1px solid var(--border-color);
+            height: 110px;
+            background-color: #1e1e24;
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 6px;
             color: #fff;
             padding: 12px;
             box-sizing: border-box;
             resize: vertical;
             font-family: inherit;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            font-size: 0.95rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
-        textarea:focus { outline: none; border-color: var(--accent-blue); }
+        textarea:focus { 
+            outline: none; 
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 8px rgba(0, 113, 227, 0.4);
+        }
 
         .btn-submit-review {
             background-color: transparent;
             color: var(--accent-blue);
             border: 1px solid var(--accent-blue);
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: 6px;
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
 
         .btn-submit-review:hover {
             background-color: var(--accent-blue);
             color: #fff;
         }
-
-        /* CONFIGURATOR BOX */
-        .configuratior-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-color);
-            padding: 35px;
-            border-radius: 12px;
-            margin-bottom: 60px;
-        }
-
-        .form-group { margin-bottom: 20px; }
-        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
-        
-        input[type="number"], select {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px;
-            background-color: #222226;
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            color: #fff;
-            font-size: 16px;
-            box-sizing: border-box;
-        }
-
-        input:focus, select:focus { outline: none; border-color: var(--accent-blue); }
-        .btn-calc { background-color: var(--accent-blue); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
-        .btn-calc:hover { background-color: #0077ed; }
-        .result-panel { margin-top: 25px; padding: 20px; background: rgba(0, 113, 227, 0.1); border-left: 4px solid var(--accent-blue); border-radius: 0 8px 8px 0; display: none; }
-        .btn-whatsapp { display: inline-flex; align-items: center; background-color: var(--accent-green); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-top: 15px; text-decoration: none; }
-        .btn-whatsapp:hover { background-color: #20ba5a; }
 
         /* CONTACT BOX */
         .contact-box {
@@ -371,7 +405,7 @@
 
     <div class="container">
         
-        <!-- SPECIFICAȚII TEHNICE -->
+        <!-- 1. SPECIFICAȚII TEHNICE -->
         <div class="section-title">Specificații Tehnice Matrițe</div>
         <div class="grid-produse">
             
@@ -415,58 +449,7 @@
 
         </div>
 
-        <!-- REVIEWS CU OPȚIUNE DE ADĂUGARE LIVE -->
-        <div class="section-title">Ce spun clienții noștri</div>
-        <div class="grid-reviews" id="reviewsContainer">
-            
-            <div class="card-review">
-                <div class="stars">★★★★★</div>
-                <div class="review-text">"Matrițele din plastic ABS de 4mm sunt excelente. Decofrarea se face extrem de ușor, iar detaliile de pe piatra spartă ies perfect definite. Recomand cu încredere produsele GardForm!"</div>
-                <div class="review-author">
-                    Andrei M. 
-                    <span class="review-verificat">Client Verificat</span>
-                </div>
-            </div>
-
-            <div class="card-review">
-                <div class="stars">★★★★★</div>
-                <div class="review-text">"Am cumpărat atât matrițe de stâlpi cât și pentru plăci de 50cm. Plasticul este foarte rezistent la turnări repetate, nu se deformează deloc. Transportul în Prahova a fost rapid."</div>
-                <div class="review-author">
-                    Ion Moldovan
-                    <span class="review-verificat">Client Verificat</span>
-                </div>
-            </div>
-
-            <div class="card-review">
-                <div class="stars">★★★★★</div>
-                <div class="review-text">"Calculatorul de pe site m-a ajutat să configurez exact proiectul meu de 35 de metri liniari. Materialul Himpact își merită toți banii, am scos finisaje profesionale."</div>
-                <div class="review-author">
-                    Vasile S.
-                    <span class="review-verificat">Client Verificat</span>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- FORMULAR DE ADAUGARE RECENZIE -->
-        <div class="add-review-box">
-            <h4>Ai cumpărat de la noi? Lasă-ne recenzia ta:</h4>
-            <div class="form-group">
-                <input type="text" id="numeReview" placeholder="Numele tău complet sau inițiala" style="margin-bottom: 15px;">
-            </div>
-            <div class="rating-select">
-                <label>Notă acordată:</label>
-                <select id="notaReview">
-                    <option value="★★★★★">5 Stele (Excelent)</option>
-                    <option value="★★★★">4 Stele (Bun)</option>
-                    <option value="★★★">3 Stele (Mediu)</option>
-                </select>
-            </div>
-            <textarea id="textReview" placeholder="Scrie aici părerea ta despre calitatea matrițelor sau serviciile GardForm..."></textarea>
-            <button class="btn-submit-review" onclick="adaugaReviewClient()">Postează recenzia</button>
-        </div>
-
-        <!-- CONFIGURATOR -->
+        <!-- 2. CALCULATOR TEHNIC GARD -->
         <div class="section-title">Calculator Tehnic Gard</div>
         <div class="configuratior-box">
             <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu specificațiile proiectului tău pentru a calcula cantitatea exactă de plăci de beton și stâlpi necesari.</p>
@@ -503,7 +486,58 @@
 
         </div>
 
-        <!-- CONTACT & LOCALIZARE -->
+        <!-- 3. CE SPUN CLIENȚII NOȘTRI -->
+        <div class="section-title">Ce spun clienții noștri</div>
+        <div class="grid-reviews" id="reviewsContainer">
+            
+            <div class="card-review">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">"Matrițele din plastic ABS de 4mm sunt excelente. Decofrarea se face extrem de ușor, iar detaliile de pe piatra spartă ies perfect definite. Recomand cu încredere produsele GardForm!"</div>
+                <div class="review-author">
+                    Andrei M. 
+                    <span class="review-verificat">Client Verificat</span>
+                </div>
+            </div>
+
+            <div class="card-review">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">"Am cumpărat atât matrițe de stâlpi cât și pentru plăci de 50cm. Plasticul este foarte rezistent la turnări repetate, nu se deformează deloc. Transportul în Prahova a fost rapid."</div>
+                <div class="review-author">
+                    Ion Moldovan
+                    <span class="review-verificat">Client Verificat</span>
+                </div>
+            </div>
+
+            <div class="card-review">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">"Calculatorul de pe site m-a ajutat să configurez exact proiectul meu de 35 de metri liniari. Materialul Himpact își merită toți banii, am scos finisaje profesionale."</div>
+                <div class="review-author">
+                    Vasile S.
+                    <span class="review-verificat">Client Verificat</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- FORMULAR DE ADAUGARE RECENZIE -->
+        <div class="add-review-box">
+            <h4>Ai cumpărat de la noi? Lasă-ne recenzia ta:</h4>
+            <div class="form-group">
+                <input type="text" id="numeReview" class="input-nume-premium" placeholder="Numele tău complet sau inițiala">
+            </div>
+            <div class="rating-select">
+                <label>Notă acordată:</label>
+                <select id="notaReview">
+                    <option value="★★★★★">5 Stele (Excelent)</option>
+                    <option value="★★★★">4 Stele (Bun)</option>
+                    <option value="★★★">3 Stele (Mediu)</option>
+                </select>
+            </div>
+            <textarea id="textReview" placeholder="Scrie aici părerea ta despre calitatea matrițelor sau serviciile GardForm..."></textarea>
+            <button class="btn-submit-review" onclick="adaugaReviewClient()">Postează recenzia</button>
+        </div>
+
+        <!-- 4. CONTACT & LOCALIZARE (LA FINAL) -->
         <div class="section-title">Contact & Localizare</div>
         <div class="contact-box">
             
@@ -540,7 +574,7 @@
     </footer>
 
     <script>
-        // SCRIPT PENTRU INSERARE REVIEW NOU DE CĂTRE CLIENȚI
+        // SCRIPT PENTRU INSERARE REVIEW NOU
         function adaugaReviewClient() {
             let nume = document.getElementById("numeReview").value.trim();
             let nota = document.getElementById("notaReview").value;
@@ -552,10 +586,9 @@
                 return;
             }
 
-            // Crearea structurii HTML pentru noul card de review
             let cardNou = document.createElement("div");
             cardNou.className = "card-review";
-            cardNou.style.borderLeft = "4px solid #ff9f0a"; // evidențiere recenzie nouă
+            cardNou.style.borderLeft = "4px solid #ff9f0a"; 
 
             cardNou.innerHTML = `
                 <div class="stars">${nota}</div>
@@ -566,10 +599,8 @@
                 </div>
             `;
 
-            // Adăugarea review-ului la finalul listei
             container.appendChild(cardNou);
 
-            // Resetarea câmpurilor din formular
             document.getElementById("numeReview").value = "";
             document.getElementById("textReview").value = "";
 
