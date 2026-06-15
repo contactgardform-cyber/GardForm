@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <!-- OPTIMIZARE SEO PENTRU GOOGLE -->
     <title>GardForm - Matrițe & Garduri din Beton Starchiojd, Prahova</title>
     <meta name="description" content="GardForm produce matrițe profesionale din plastic ABS HIMPACT de 4mm și garduri din beton rezistente în Starchiojd, Prahova. Calculează necesarul de plăci online!">
     <meta name="keywords" content="garduri beton prahova, matrite gard starchiojd, placi beton gard, matrite abs, forme gard beton, garduri starchiojd, productie garduri">
     <meta name="author" content="GardForm">
     <meta name="robots" content="index, follow">
 
-    <!-- FONT PREMIUM PENTRU PAGINĂ -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
@@ -22,6 +20,7 @@
             --bg-card: #1a1a1e;
             --accent-blue: #0071e3;
             --accent-green: #25d366;
+            --accent-gold: #ffb703;
             --text-main: #f5f5f7;
             --text-muted: #86868b;
             --border-color: #2c2c32;
@@ -54,7 +53,6 @@
             align-items: center;
         }
 
-        /* LOGO TEXT STILIZAT (STÂNGA SUS) */
         .logo-text-nav {
             font-family: 'Montserrat', sans-serif;
             font-weight: 900;
@@ -64,13 +62,8 @@
             text-decoration: none;
         }
 
-        .logo-text-nav .part-one {
-            color: #ffffff;
-        }
-
-        .logo-text-nav .part-two {
-            color: var(--accent-blue);
-        }
+        .logo-text-nav .part-one { color: #ffffff; }
+        .logo-text-nav .part-two { color: var(--accent-blue); }
 
         .nav-links {
             display: flex;
@@ -90,29 +83,33 @@
             color: #fff;
         }
 
-        /* HEADER CU LOGO GRAFIC CENTRAL */
+        /* HEADER OPTIMIZAT - FĂRĂ FUNDAL ALB LA LOGO */
         header {
             background: linear-gradient(180deg, #000000 0%, var(--bg-dark) 100%);
-            padding: 50px 20px;
+            padding: 60px 20px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
 
         .header-logo-box {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         .header-logo-img {
-            height: 110px; /* Înălțime perfectă pentru logo-ul central */
+            height: 160px; /* Dimensiune optimizată, vizibilă și impunătoare */
             width: auto;
             display: block;
             object-fit: contain;
-            background: #ffffff; /* Creează fundalul alb curat în jurul logo-ului din Canva */
-            padding: 12px 25px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            background-color: transparent !important; /* Forțează eliminarea oricărui fundal din cod */
+            background: transparent !important;
+            padding: 0; /* Elimină spațiul alb din jurul imaginii */
+            border-radius: 0;
+            box-shadow: none;
+            /* Adaugă un efect subtil de umbră pe textul din logo pentru a ieși în evidență pe negru */
+            filter: drop-shadow(0px 4px 12px rgba(255, 255, 255, 0.08)); 
         }
 
         header p {
@@ -176,26 +173,60 @@
             flex-grow: 1;
         }
 
-        .produs-info h3 {
-            margin: 0 0 10px 0;
-            font-size: 1.4rem;
+        .produs-info h3 { margin: 0 0 10px 0; font-size: 1.4rem; }
+        .produs-info p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; flex-grow: 1; }
+        .produs-detalii { font-size: 0.9rem; background: rgba(255,255,255,0.03); padding: 10px; border-radius: 6px; margin-bottom: 10px; border: 1px solid rgba(255,255,255,0.05); }
+
+        /* SECȚIUNE RECENZII CLIENȚI */
+        .grid-reviews {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 60px;
         }
 
-        .produs-info p {
-            color: var(--text-muted);
+        .card-review {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+        }
+
+        .stars {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-main);
             font-size: 0.95rem;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            flex-grow: 1;
+            line-height: 1.6;
+            margin-bottom: 15px;
         }
 
-        .produs-detalii {
+        .review-author {
+            font-weight: 700;
             font-size: 0.9rem;
-            background: rgba(255,255,255,0.03);
-            padding: 10px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            border: 1px solid rgba(255,255,255,0.05);
+            color: var(--accent-blue);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .review-author::before {
+            content: "✓";
+            color: var(--accent-green);
+            font-weight: 900;
+        }
+
+        .review-verificat {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-left: auto;
         }
 
         /* CONFIGURATOR BOX */
@@ -207,16 +238,9 @@
             margin-bottom: 60px;
         }
 
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 500; }
+        
         input[type="number"], select {
             width: 100%;
             max-width: 400px;
@@ -229,50 +253,11 @@
             box-sizing: border-box;
         }
 
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--accent-blue);
-        }
-
-        .btn-calc {
-            background-color: var(--accent-blue);
-            color: white;
-            padding: 14px 28px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
+        input:focus, select:focus { outline: none; border-color: var(--accent-blue); }
+        .btn-calc { background-color: var(--accent-blue); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
         .btn-calc:hover { background-color: #0077ed; }
-
-        .result-panel {
-            margin-top: 25px;
-            padding: 20px;
-            background: rgba(0, 113, 227, 0.1);
-            border-left: 4px solid var(--accent-blue);
-            border-radius: 0 8px 8px 0;
-            display: none;
-        }
-
-        .btn-whatsapp {
-            display: inline-flex;
-            align-items: center;
-            background-color: var(--accent-green);
-            color: white;
-            padding: 14px 28px;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: 600;
-            text-transform: uppercase;
-            margin-top: 15px;
-            text-decoration: none;
-        }
+        .result-panel { margin-top: 25px; padding: 20px; background: rgba(0, 113, 227, 0.1); border-left: 4px solid var(--accent-blue); border-radius: 0 8px 8px 0; display: none; }
+        .btn-whatsapp { display: inline-flex; align-items: center; background-color: var(--accent-green); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-top: 15px; text-decoration: none; }
         .btn-whatsapp:hover { background-color: #20ba5a; }
 
         /* CONTACT BOX */
@@ -287,41 +272,16 @@
             gap: 30px;
         }
 
-        .contact-info-item h4 {
-            margin: 0 0 10px 0;
-            color: var(--accent-blue);
-            font-size: 1.1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
+        .contact-info-item h4 { margin: 0 0 10px 0; color: var(--accent-blue); font-size: 1.1rem; text-transform: uppercase; letter-spacing: 0.5px; }
+        .contact-info-item p { margin: 0; line-height: 1.6; color: var(--text-main); }
+        .contact-link { color: #fff; text-decoration: none; border-bottom: 1px dashed var(--accent-blue); }
+        .contact-link:hover { color: var(--accent-blue); }
 
-        .contact-info-item p {
-            margin: 0;
-            line-height: 1.6;
-            color: var(--text-main);
-        }
-
-        .contact-link {
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px dashed var(--accent-blue);
-        }
-        .contact-link:hover {
-            color: var(--accent-blue);
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9rem;
-        }
+        footer { text-align: center; padding: 40px 20px; color: var(--text-muted); border-top: 1px solid var(--border-color); font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
-    <!-- MENIUL CU TEXT STILIZAT ÎN STÂNGA -->
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo-text-nav">
@@ -334,7 +294,6 @@
         </div>
     </nav>
 
-    <!-- HEADER CU LOGO-UL GRAFIC CENTRAL -->
     <header>
         <div class="header-logo-box">
             <img src="logo.png" alt="GardForm Logo" class="header-logo-img">
@@ -344,7 +303,6 @@
 
     <div class="container">
         
-        <!-- SPECIFICAȚII TEHNICE -->
         <div class="section-title">Specificații Tehnice Matrițe</div>
         <div class="grid-produse">
             
@@ -388,7 +346,38 @@
 
         </div>
 
-        <!-- CONFIGURATOR -->
+        <div class="section-title">Ce spun clienții noștri</div>
+        <div class="grid-reviews">
+            
+            <div class="card-review">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">"Matrițele din plastic ABS de 4mm sunt excelente. Decofrarea se face extrem de ușor, iar detaliile de pe piatra spartă ies perfect definite. Recomand cu încredere produsele GardForm!"</div>
+                <div class="review-author">
+                    Andrei M. 
+                    <span class="review-verificat">Client Verificat</span>
+                </div>
+            </div>
+
+            <div class="card-review">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">"Am cumpărat atât matrițe de stâlpi cât și pentru plăci de 50cm. Plasticul este foarte rezistent la turnări repetate, nu se deformează deloc. Transportul în Prahova a fost rapid."</div>
+                <div class="review-author">
+                    Ion Moldovan
+                    <span class="review-verificat">Client Verificat</span>
+                </div>
+            </div>
+
+            <div class="card-review">
+                <div class="stars">★★★★★</div>
+                <div class="review-text">"Calculatorul de pe site m-a ajutat să configurez exact proiectul meu de 35 de metri liniari. Materialul Himpact își merită toți banii, am scos finisaje profesionale."</div>
+                <div class="review-author">
+                    Vasile S.
+                    <span class="review-verificat">Client Verificat</span>
+                </div>
+            </div>
+
+        </div>
+
         <div class="section-title">Calculator Tehnic Gard</div>
         <div class="configuratior-box">
             <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu specificațiile proiectului tău pentru a calcula cantitatea exactă de plăci de beton și stâlpi necesari.</p>
@@ -418,7 +407,6 @@
 
             <div class="result-panel" id="panouRezultat">
                 <div id="textRezultat" style="line-height: 1.6; margin-bottom: 15px;"></div>
-                
                 <a href="#" id="whatsappLink" target="_blank" class="btn-whatsapp">
                     Trimite necesarul pe WhatsApp
                 </a>
@@ -426,7 +414,6 @@
 
         </div>
 
-        <!-- CONTACT & LOCALIZARE -->
         <div class="section-title">Contact & Localizare</div>
         <div class="contact-box">
             
