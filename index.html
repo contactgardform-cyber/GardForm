@@ -270,7 +270,7 @@
             margin-left: auto;
         }
 
-        /* FORMULAR ADĂUGARE REVIEW CU DESIGN STYLIZAT LA INPUT */
+        /* FORMULAR ADĂUGARE REVIEW */
         .add-review-box {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
@@ -287,7 +287,6 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-        /* Design îmbunătățit special pentru input-ul de nume */
         .input-nume-premium {
             width: 100%;
             max-width: 100% !important;
@@ -299,7 +298,6 @@
         
         .input-nume-premium::placeholder {
             color: var(--text-muted);
-            font-style: cubic-bezier(0.075, 0.82, 0.165, 1);
             font-size: 0.95rem;
         }
 
@@ -360,6 +358,31 @@
         .btn-submit-review:hover {
             background-color: var(--accent-blue);
             color: #fff;
+        }
+
+        /* BUTTON SCROLL TO TOP */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: rgba(0, 113, 227, 0.8);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            z-index: 99;
+            backdrop-filter: blur(5px);
+            transition: background-color 0.3s ease;
+        }
+        .scroll-top-btn:hover {
+            background-color: var(--accent-blue);
         }
 
         /* CONTACT BOX */
@@ -490,6 +513,7 @@
         <div class="section-title">Ce spun clienții noștri</div>
         <div class="grid-reviews" id="reviewsContainer">
             
+            <!-- Recenziile implicite fixe -->
             <div class="card-review">
                 <div class="stars">★★★★★</div>
                 <div class="review-text">"Matrițele din plastic ABS de 4mm sunt excelente. Decofrarea se face extrem de ușor, iar detaliile de pe piatra spartă ies perfect definite. Recomand cu încredere produsele GardForm!"</div>
@@ -569,42 +593,108 @@
 
     </div>
 
+    <!-- Buton discret Scroll to Top -->
+    <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
     <footer>
         &copy; 2026 GardForm. Toate drepturile rezervate. | Soluții SEO Premium pentru Județul Prahova.
     </footer>
 
     <script>
-        // SCRIPT PENTRU INSERARE REVIEW NOU
+        // ÎNCĂRCARE REVIEWS SALVATE LA REFRESH
+        document.addEventListener("DOMContentLoaded", function() {
+            afiseazaReviewsSalvate();
+            
+            // Monitorizare scroll pentru afișarea butonului Scroll To Top
+            window.onscroll = function() {
+                let btn = document.getElementById("scrollTopBtn");
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    btn.style.display = "flex";
+                } else {
+                    btn.style.display = "none";
+                }
+            };
+        });
+
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+
+        // SCRIPT PENTRU INSERARE ȘI SALVARE REVIEWS IN LOCALSTORAGE
         function adaugaReviewClient() {
             let nume = document.getElementById("numeReview").value.trim();
             let nota = document.getElementById("notaReview").value;
             let text = document.getElementById("textReview").value.trim();
-            let container = document.getElementById("reviewsContainer");
 
             if (nume === "" || text === "") {
                 alert("Te rugăm să îți introduci numele și textul recenziei înainte de a trimite.");
                 return;
             }
 
-            let cardNou = document.createElement("div");
-            cardNou.className = "card-review";
-            cardNou.style.borderLeft = "4px solid #ff9f0a"; 
+            // Crearea obiectului review
+            let reviewNou = {
+                nume: nume,
+                nota: nota,
+                text: text
+            };
 
-            cardNou.innerHTML = `
-                <div class="stars">${nota}</div>
-                <div class="review-text">"${text}"</div>
-                <div class="review-author">
-                    ${nume}
-                    <span class="review-asteptare">În așteptare aprobare</span>
-                </div>
-            `;
+            // Preluăm istoricul din LocalStorage sau creăm o listă goală
+            let istoricReviews = JSON.parse(localStorage.getItem("gardform_reviews")) || [];
+            istoricReviews.push(reviewNou);
+            
+            // Salvăm înapoi în memoria browserului
+            localStorage.setItem("gardform_reviews", JSON.stringify(istoricReviews));
 
-            container.appendChild(cardNou);
+            // Actualizăm lista pe ecran
+            afiseazaReviewsSalvate();
 
+            // Resetare câmpuri formular
             document.getElementById("numeReview").value = "";
             document.getElementById("textReview").value = "";
 
-            alert("Mulțumim! Recenzia ta a fost trimisă spre moderare și este afișată pe pagină.");
+            alert("Mulțumim! Recenzia ta a fost trimisă și salvată cu succes.");
+        }
+
+        function afiseazaReviewsSalvate() {
+            let container = document.getElementById("reviewsContainer");
+            
+            // Resetăm containerul la recenziile inițiale ca să nu le duplicăm
+            container.innerHTML = `
+                <div class="card-review">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"Matrițele din plastic ABS de 4mm sunt excelente. Decofrarea se face extrem de ușor, iar detaliile de pe piatra spartă ies perfect definite. Recomand cu încredere produsele GardForm!"</div>
+                    <div class="review-author">Andrei M. <span class="review-verificat">Client Verificat</span></div>
+                </div>
+                <div class="card-review">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"Am cumpărat atât matrițe de stâlpi cât și pentru plăci de 50cm. Plasticul este foarte rezistent la turnări repetate, nu se deformează deloc. Transportul în Prahova a fost rapid."</div>
+                    <div class="review-author">Ion Moldovan <span class="review-verificat">Client Verificat</span></div>
+                </div>
+                <div class="card-review">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"Calculatorul de pe site m-a ajutat să configurez exact proiectul meu de 35 de metri liniari. Materialul Himpact își merită toți banii, am scos finisaje profesionale."</div>
+                    <div class="review-author">Vasile S. <span class="review-verificat">Client Verificat</span></div>
+                </div>
+            `;
+
+            // Încărcăm recenziile adăugate manual din LocalStorage
+            let istoricReviews = JSON.parse(localStorage.getItem("gardform_reviews")) || [];
+            
+            istoricReviews.forEach(function(item) {
+                let cardNou = document.createElement("div");
+                cardNou.className = "card-review";
+                cardNou.style.borderLeft = "4px solid #ff9f0a"; 
+
+                cardNou.innerHTML = `
+                    <div class="stars">${item.nota}</div>
+                    <div class="review-text">"${item.text}"</div>
+                    <div class="review-author">
+                        ${item.nume}
+                        <span class="review-asteptare">În așteptare aprobare</span>
+                    </div>
+                `;
+                container.appendChild(cardNou);
+            });
         }
 
         // SCRIPT CONFIGURATOR CALCULATOR
