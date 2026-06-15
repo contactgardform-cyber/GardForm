@@ -34,6 +34,7 @@
             padding: 0;
             background-color: var(--bg-dark);
             color: var(--text-main);
+            overflow-x: hidden;
         }
 
         /* BARĂ DE NAVIGARE */
@@ -131,6 +132,20 @@
             letter-spacing: 1px;
         }
 
+        /* EFFECTE PREMIUM DE ANIMAȚIE (FADE-IN) */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            transition-property: opacity, transform;
+            will-change: opacity, transform;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
         /* GRILĂ PRODUSE */
         .grid-produse {
             display: grid;
@@ -205,10 +220,25 @@
             box-shadow: 0 0 8px rgba(0, 113, 227, 0.4);
         }
 
-        .btn-calc { background-color: var(--accent-blue); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+        .btn-calc { background-color: var(--accent-blue); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; transition: background-color 0.3s ease; }
         .btn-calc:hover { background-color: #0077ed; }
-        .result-panel { margin-top: 25px; padding: 20px; background: rgba(0, 113, 227, 0.1); border-left: 4px solid var(--accent-blue); border-radius: 0 8px 8px 0; display: none; }
-        .btn-whatsapp { display: inline-flex; align-items: center; background-color: var(--accent-green); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-top: 15px; text-decoration: none; }
+        
+        .result-panel { 
+            margin-top: 25px; 
+            padding: 20px; 
+            background: rgba(0, 113, 227, 0.1); 
+            border-left: 4px solid var(--accent-blue); 
+            border-radius: 0 8px 8px 0; 
+            display: none; 
+            animation: fadeInSimple 0.4s ease-out forwards;
+        }
+        
+        @keyframes fadeInSimple {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .btn-whatsapp { display: inline-flex; align-items: center; background-color: var(--accent-green); color: white; padding: 14px 28px; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; font-weight: 600; text-transform: uppercase; margin-top: 15px; text-decoration: none; transition: background-color 0.3s ease; }
         .btn-whatsapp:hover { background-color: #20ba5a; }
 
         /* SECȚIUNE RECENZII CLIENȚI */
@@ -379,10 +409,11 @@
             font-size: 1.2rem;
             z-index: 99;
             backdrop-filter: blur(5px);
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
         .scroll-top-btn:hover {
             background-color: var(--accent-blue);
+            transform: scale(1.1);
         }
 
         /* CONTACT BOX */
@@ -429,166 +460,165 @@
     <div class="container">
         
         <!-- 1. SPECIFICAȚII TEHNICE -->
-        <div class="section-title">Specificații Tehnice Matrițe</div>
-        <div class="grid-produse">
-            
-            <div class="card-produs">
-                <div class="produs-imagine" style="background-image: url('piatra-sparta.jpg'), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="produs-info">
-                    <h3>Matrițe Panou (Plăci) - Tip 50cm</h3>
-                    <p>Ideale pentru texturi masive precum Piatră Spartă, Piatră-Val sau Cărămidă Clasică. Oferă finisaj impecabil și decofrare rapidă.</p>
-                    <div class="produs-detalii">
-                        <strong>Material:</strong> Plastic ABS Himpact (4mm)<br>
-                        <strong>Dimensiuni piesă turnată:</strong> 200cm x 50cm<br>
-                        <strong>Grosime placă beton:</strong> 4 cm
+        <div class="fade-in-section">
+            <div class="section-title">Specificații Tehnice Matrițe</div>
+            <div class="grid-produse">
+                
+                <div class="card-produs">
+                    <div class="produs-imagine" style="background-image: url('piatra-sparta.jpg'), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="produs-info">
+                        <h3>Matrițe Panou (Plăci) - Tip 50cm</h3>
+                        <p>Ideale pentru texturi masive precum Piatră Spartă, Piatră-Val sau Cărămidă Clasică. Oferă finisaj impecabil și decofrare rapidă.</p>
+                        <div class="produs-detalii">
+                            <strong>Material:</strong> Plastic ABS Himpact (4mm)<br>
+                            <strong>Dimensiuni piesă turnată:</strong> 200cm x 50cm<br>
+                            <strong>Grosime placă beton:</strong> 4 cm
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card-produs">
-                <div class="produs-imagine" style="background-image: url('caramida-clasica.jpg'), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="produs-info">
-                    <h3>Matrițe Panou (Plăci) - Tip 30cm</h3>
-                    <p>Potrivite pentru modele moderne liniare sau tip pătrățele (M5 - M14). Permit o modularitate crescută pe înălțime.</p>
-                    <div class="produs-detalii">
-                        <strong>Material:</strong> Plastic ABS Himpact (4mm)<br>
-                        <strong>Dimensiuni piesă turnată:</strong> 200cm x 30cm<br>
-                        <strong>Grosime placă beton:</strong> 4 cm
+                <div class="card-produs">
+                    <div class="produs-imagine" style="background-image: url('caramida-clasica.jpg'), url('https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="produs-info">
+                        <h3>Matrițe Panou (Plăci) - Tip 30cm</h3>
+                        <p>Potrivite pentru modele moderne liniare sau tip pătrățele (M5 - M14). Permit o modularitate crescută pe înălțime.</p>
+                        <div class="produs-detalii">
+                            <strong>Material:</strong> Plastic ABS Himpact (4mm)<br>
+                            <strong>Dimensiuni piesă turnată:</strong> 200cm x 30cm<br>
+                            <strong>Grosime placă beton:</strong> 4 cm
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="card-produs">
-                <div class="produs-imagine" style="background-image: url('matrita-stalp.jpg'), url('https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=500&q=80');"></div>
-                <div class="produs-info">
-                    <h3>Sisteme Matrițe Stâlpi</h3>
-                    <p>Matrițe speciale cu caneluri integrate pentru culisarea perfectă a plăcilor de beton cu grosime de 4 cm.</p>
-                    <div class="produs-detalii">
-                        <strong>Material:</strong> ABS Industrial ranforsat<br>
-                        <strong>Compatibilitate înălțimi:</strong> 1.5m - 2.2m
+                <div class="card-produs">
+                    <div class="produs-imagine" style="background-image: url('matrita-stalp.jpg'), url('https://images.unsplash.com/photo-1590069261209-f8e9b8642343?auto=format&fit=crop&w=500&q=80');"></div>
+                    <div class="produs-info">
+                        <h3>Sisteme Matrițe Stâlpi</h3>
+                        <p>Matrițe speciale cu caneluri integrate pentru culisarea perfectă a plăcilor de beton cu grosime de 4 cm.</p>
+                        <div class="produs-detalii">
+                            <strong>Material:</strong> ABS Industrial ranforsat<br>
+                            <strong>Compatibilitate înălțimi:</strong> 1.5m - 2.2m
+                        </div>
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
 
         <!-- 2. CALCULATOR TEHNIC GARD -->
-        <div class="section-title">Calculator Tehnic Gard</div>
-        <div class="configuratior-box">
-            <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu specificațiile proiectului tău pentru a calcula cantitatea exactă de plăci de beton și stâlpi necesari.</p>
-            
-            <div class="form-group">
-                <label for="tipPlaca">1. Alege dimensiunea pe înălțime a plăcii (matriței):</label>
-                <select id="tipPlaca">
-                    <option value="50">Matriță Clasică (Înălțime placă: 50 cm)</option>
-                    <option value="30">Matriță Îngustă (Înălțime placă: 30 cm)</option>
-                </select>
+        <div class="fade-in-section">
+            <div class="section-title">Calculator Tehnic Gard</div>
+            <div class="configuratior-box">
+                <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu specificațiile proiectului tău pentru a calcula cantitatea exactă de plăci de beton și stâlpi necesari.</p>
+                
+                <div class="form-group">
+                    <label for="tipPlaca">1. Alege dimensiunea pe înălțime a plăcii (matriței):</label>
+                    <select id="tipPlaca">
+                        <option value="50">Matriță Clasică (Înălțime placă: 50 cm)</option>
+                        <option value="30">Matriță Îngustă (Înălțime placă: 30 cm)</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="inaltimeGard">2. Selectează înălțimea totală a gardului dorit:</label>
+                    <select id="inaltimeGard">
+                        <option value="1.5">1.5 Metri Înălțime</option>
+                        <option value="2.0">2.0 Metri Înălțime</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="lungimeInput">3. Lungimea totală a gardului (metri liniari):</label>
+                    <input type="number" id="lungimeInput" placeholder="Ex: 20" min="1">
+                </div>
+
+                <button class="btn-calc" onclick="calculeazaConfiguratie()">Calculează Configurația</button>
+
+                <div class="result-panel" id="panouRezultat">
+                    <div id="textRezultat" style="line-height: 1.6; margin-bottom: 15px;"></div>
+                    <a href="#" id="whatsappLink" target="_blank" class="btn-whatsapp">
+                        Trimite necesarul pe WhatsApp
+                    </a>
+                </div>
+
             </div>
-
-            <div class="form-group">
-                <label for="inaltimeGard">2. Selectează înălțimea totală a gardului dorit:</label>
-                <select id="inaltimeGard">
-                    <option value="1.5">1.5 Metri Înălțime</option>
-                    <option value="2.0">2.0 Metri Înălțime</option>
-                </select>
-            </div>
-
-            <div class="form-group">
-                <label for="lungimeInput">3. Lungimea totală a gardului (metri liniari):</label>
-                <input type="number" id="lungimeInput" placeholder="Ex: 20" min="1">
-            </div>
-
-            <button class="btn-calc" onclick="calculeazaConfiguratie()">Calculează Configurația</button>
-
-            <div class="result-panel" id="panouRezultat">
-                <div id="textRezultat" style="line-height: 1.6; margin-bottom: 15px;"></div>
-                <a href="#" id="whatsappLink" target="_blank" class="btn-whatsapp">
-                    Trimite necesarul pe WhatsApp
-                </a>
-            </div>
-
         </div>
 
         <!-- 3. CE SPUN CLIENȚII NOȘTRI -->
-        <div class="section-title">Ce spun clienții noștri</div>
-        <div class="grid-reviews" id="reviewsContainer">
-            
-            <!-- Recenziile implicite fixe -->
-            <div class="card-review">
-                <div class="stars">★★★★★</div>
-                <div class="review-text">"Matrițele din plastic ABS de 4mm sunt excelente. Decofrarea se face extrem de ușor, iar detaliile de pe piatra spartă ies perfect definite. Recomand cu încredere produsele GardForm!"</div>
-                <div class="review-author">
-                    Andrei M. 
-                    <span class="review-verificat">Client Verificat</span>
+        <div class="fade-in-section">
+            <div class="section-title">Ce spun clienții noștri</div>
+            <div class="grid-reviews" id="reviewsContainer">
+                
+                <!-- Recenziile implicite fixe -->
+                <div class="card-review">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"Matrițele din plastic ABS de 4mm sunt excelente. Decofrarea se face extrem de ușor, iar detaliile de pe piatra spartă ies perfect definite. Recomand cu încredere produsele GardForm!"</div>
+                    <div class="review-author">Andrei M. <span class="review-verificat">Client Verificat</span></div>
                 </div>
-            </div>
 
-            <div class="card-review">
-                <div class="stars">★★★★★</div>
-                <div class="review-text">"Am cumpărat atât matrițe de stâlpi cât și pentru plăci de 50cm. Plasticul este foarte rezistent la turnări repetate, nu se deformează deloc. Transportul în Prahova a fost rapid."</div>
-                <div class="review-author">
-                    Ion Moldovan
-                    <span class="review-verificat">Client Verificat</span>
+                <div class="card-review">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"Am cumpărat atât matrițe de stâlpi cât și pentru plăci de 50cm. Plasticul este foarte rezistent la turnări repetate, nu se deformează deloc. Transportul în Prahova a fost rapid."</div>
+                    <div class="review-author">Ion Moldovan <span class="review-verificat">Client Verificat</span></div>
                 </div>
-            </div>
 
-            <div class="card-review">
-                <div class="stars">★★★★★</div>
-                <div class="review-text">"Calculatorul de pe site m-a ajutat să configurez exact proiectul meu de 35 de metri liniari. Materialul Himpact își merită toți banii, am scos finisaje profesionale."</div>
-                <div class="review-author">
-                    Vasile S.
-                    <span class="review-verificat">Client Verificat</span>
+                <div class="card-review">
+                    <div class="stars">★★★★★</div>
+                    <div class="review-text">"Calculatorul de pe site m-a ajutat să configurez exact proiectul meu de 35 de metri liniari. Materialul Himpact își merită toți banii, am scos finisaje profesionale."</div>
+                    <div class="review-author">Vasile S. <span class="review-verificat">Client Verificat</span></div>
                 </div>
+
             </div>
 
-        </div>
-
-        <!-- FORMULAR DE ADAUGARE RECENZIE -->
-        <div class="add-review-box">
-            <h4>Ai cumpărat de la noi? Lasă-ne recenzia ta:</h4>
-            <div class="form-group">
-                <input type="text" id="numeReview" class="input-nume-premium" placeholder="Numele tău complet sau inițiala">
+            <!-- FORMULAR DE ADAUGARE RECENZIE -->
+            <div class="add-review-box">
+                <h4>Ai cumpărat de la noi? Lasă-ne recenzia ta:</h4>
+                <div class="form-group">
+                    <input type="text" id="numeReview" class="input-nume-premium" placeholder="Numele tău complet sau inițiala">
+                </div>
+                <div class="rating-select">
+                    <label>Notă acordată:</label>
+                    <select id="notaReview">
+                        <option value="★★★★★">5 Stele (Excelent)</option>
+                        <option value="★★★★">4 Stele (Bun)</option>
+                        <option value="★★★">3 Stele (Mediu)</option>
+                    </select>
+                </div>
+                <textarea id="textReview" placeholder="Scrie aici părerea ta despre calitatea matrițelor sau serviciile GardForm..."></textarea>
+                <button class="btn-submit-review" onclick="adaugaReviewClient()">Postează recenzia</button>
             </div>
-            <div class="rating-select">
-                <label>Notă acordată:</label>
-                <select id="notaReview">
-                    <option value="★★★★★">5 Stele (Excelent)</option>
-                    <option value="★★★★">4 Stele (Bun)</option>
-                    <option value="★★★">3 Stele (Mediu)</option>
-                </select>
-            </div>
-            <textarea id="textReview" placeholder="Scrie aici părerea ta despre calitatea matrițelor sau serviciile GardForm..."></textarea>
-            <button class="btn-submit-review" onclick="adaugaReviewClient()">Postează recenzia</button>
         </div>
 
         <!-- 4. CONTACT & LOCALIZARE (LA FINAL) -->
-        <div class="section-title">Contact & Localizare</div>
-        <div class="contact-box">
-            
-            <div class="contact-info-item">
-                <h4>Locație Producție</h4>
-                <p>
-                    Comuna Starchiojd<br>
-                    Județul Prahova, România
-                </p>
-            </div>
+        <div class="fade-in-section">
+            <div class="section-title">Contact & Localizare</div>
+            <div class="contact-box">
+                
+                <div class="contact-info-item">
+                    <h4>Locație Producție</h4>
+                    <p>
+                        Comuna Starchiojd<br>
+                        Județul Prahova, România
+                    </p>
+                </div>
 
-            <div class="contact-info-item">
-                <h4>Suport Clienți</h4>
-                <p>
-                    Telefon / WA: <a href="https://wa.me/33770391516" target="_blank" class="contact-link">+33 7 70 39 15 16</a><br>
-                    E-mail: <a href="mailto:contact.gardform@gmail.com" class="contact-link">contact.gardform@gmail.com</a>
-                </p>
-            </div>
+                <div class="contact-info-item">
+                    <h4>Suport Clienți</h4>
+                    <p>
+                        Telefon / WA: <a href="https://wa.me/33770391516" target="_blank" class="contact-link">+33 7 70 39 15 16</a><br>
+                        E-mail: <a href="mailto:contact.gardform@gmail.com" class="contact-link">contact.gardform@gmail.com</a>
+                    </p>
+                </div>
 
-            <div class="contact-info-item">
-                <h4>Program Operare</h4>
-                <p>
-                    Luni - Vineri: 08:00 - 17:00<br>
-                    Sâmbătă - Duminică: Închis
-                </p>
-            </div>
+                <div class="contact-info-item">
+                    <h4>Program Operare</h4>
+                    <p>
+                        Luni - Vineri: 08:00 - 17:00<br>
+                        Sâmbătă - Duminică: Închis
+                    </p>
+                </div>
 
+            </div>
         </div>
 
     </div>
@@ -601,9 +631,10 @@
     </footer>
 
     <script>
-        // ÎNCĂRCARE REVIEWS SALVATE LA REFRESH
+        // INITIALIZARE COMPONENTE LA INCARCAREA PAGINII
         document.addEventListener("DOMContentLoaded", function() {
             afiseazaReviewsSalvate();
+            initScrollAnimations();
             
             // Monitorizare scroll pentru afișarea butonului Scroll To Top
             window.onscroll = function() {
@@ -615,6 +646,30 @@
                 }
             };
         });
+
+        // MECANISMUL PREMIUM DE ANIMATIE LA SCROLL (FADE-IN)
+        function initScrollAnimations() {
+            let sections = document.querySelectorAll('.fade-in-section');
+            
+            let observerOptions = {
+                root: null, // se raportează la ecran (viewport)
+                threshold: 0.1, // pornește animația când 10% din secțiune e vizibilă
+                rootMargin: "0px 0px -40px 0px" // pornește cu un mic avans înainte de a intra complet pe ecran
+            };
+
+            let observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // dezactivează monitorizarea după ce s-a animat o dată
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(function(section) {
+                observer.observe(section);
+            });
+        }
 
         function scrollToTop() {
             window.scrollTo({top: 0, behavior: 'smooth'});
@@ -631,24 +686,19 @@
                 return;
             }
 
-            // Crearea obiectului review
             let reviewNou = {
                 nume: nume,
                 nota: nota,
                 text: text
             };
 
-            // Preluăm istoricul din LocalStorage sau creăm o listă goală
             let istoricReviews = JSON.parse(localStorage.getItem("gardform_reviews")) || [];
             istoricReviews.push(reviewNou);
             
-            // Salvăm înapoi în memoria browserului
             localStorage.setItem("gardform_reviews", JSON.stringify(istoricReviews));
 
-            // Actualizăm lista pe ecran
             afiseazaReviewsSalvate();
 
-            // Resetare câmpuri formular
             document.getElementById("numeReview").value = "";
             document.getElementById("textReview").value = "";
 
@@ -658,7 +708,6 @@
         function afiseazaReviewsSalvate() {
             let container = document.getElementById("reviewsContainer");
             
-            // Resetăm containerul la recenziile inițiale ca să nu le duplicăm
             container.innerHTML = `
                 <div class="card-review">
                     <div class="stars">★★★★★</div>
@@ -677,7 +726,6 @@
                 </div>
             `;
 
-            // Încărcăm recenziile adăugate manual din LocalStorage
             let istoricReviews = JSON.parse(localStorage.getItem("gardform_reviews")) || [];
             
             istoricReviews.forEach(function(item) {
