@@ -3,12 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Despre Noi - GardForm Starchiojd</title>
+    
+    <title>Despre Noi - GardForm | Matrițe Profesionale ABS Prahova</title>
+    <meta name="description" content="Află povestea GardForm din Starchiojd, Prahova. Producem și operăm cu matrițe premium din plastic ABS HIMPACT de 4mm pentru garduri din beton durabile.">
+    <meta name="keywords" content="despre gardform, matrite starchiojd, producator matrite gard, abs himpact 4mm, garduri beton prahova">
+    <meta name="author" content="GardForm">
+    <meta name="robots" content="index, follow">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
     <style>
         :root {
             --bg-dark: #121214;
             --bg-card: #1a1a1e;
             --accent-blue: #0071e3;
+            --accent-green: #25d366;
             --text-main: #f5f5f7;
             --text-muted: #86868b;
             --border-color: #2c2c32;
@@ -20,110 +31,302 @@
             padding: 0;
             background-color: var(--bg-dark);
             color: var(--text-main);
+            overflow-x: hidden;
         }
 
+        /* BARĂ DE NAVIGARE */
+        nav {
+            background-color: rgba(26, 26, 30, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 20px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-text-nav {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+        }
+
+        .logo-text-nav .part-one { color: #ffffff; }
+        .logo-text-nav .part-two { color: var(--accent-blue); }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #fff;
+        }
+
+        /* HEADER PAGINĂ SECUNDARĂ */
         header {
             background: linear-gradient(180deg, #000000 0%, var(--bg-dark) 100%);
-            padding: 40px 20px;
+            padding: 50px 20px;
             text-align: center;
             border-bottom: 1px solid var(--border-color);
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 2.2rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
-        .nav-back {
-            margin-top: 15px;
+        header p {
+            margin: 0;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            font-weight: 500;
         }
-
-        .nav-link {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .nav-link:hover { text-decoration: underline; }
 
         .container {
-            max-width: 800px;
+            max-width: 850px; /* Format mai restrâns și elegant pentru citit text */
             margin: 40px auto;
             padding: 0 20px;
-            line-height: 1.8;
         }
 
-        .content-box {
+        .section-title {
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            border-left: 4px solid var(--accent-blue);
+            padding-left: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+
+        /* EFFECTE PREMIUM DE ANIMAȚIE (FADE-IN) */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 1, 0.5, 1), transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+            will-change: opacity, transform;
+            margin-bottom: 50px;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* BLOCURI DE CONȚINUT */
+        .content-block {
             background-color: var(--bg-card);
             border: 1px solid var(--border-color);
             padding: 35px;
             border-radius: 12px;
-            margin-bottom: 30px;
+            line-height: 1.7;
+            font-size: 1.05rem;
+            color: #e0e0e6;
         }
 
-        h2 {
+        .content-block p {
+            margin: 0 0 20px 0;
+        }
+        
+        .content-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* LISTĂ STANDARDE */
+        .standards-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .standards-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .standards-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .standards-list li strong {
             color: #fff;
-            border-bottom: 2px solid var(--accent-blue);
-            padding-bottom: 10px;
-            margin-top: 0;
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
         }
 
-        ul {
-            padding-left: 20px;
+        .standards-list li::before {
+            content: "➔";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--accent-blue);
+            font-weight: bold;
         }
 
-        footer {
-            text-align: center;
-            padding: 40px 20px;
-            color: var(--text-muted);
-            border-top: 1px solid var(--border-color);
-            font-size: 0.9rem;
+        /* BUTTON SCROLL TO TOP */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: rgba(0, 113, 227, 0.8);
+            color: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            z-index: 99;
+            backdrop-filter: blur(5px);
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
+        .scroll-top-btn:hover {
+            background-color: var(--accent-blue);
+            transform: scale(1.1);
+        }
+
+        footer { text-align: center; padding: 40px 20px; color: var(--text-muted); border-top: 1px solid var(--border-color); font-size: 0.9rem; margin-top: 60px; }
     </style>
 </head>
 <body>
 
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo-text-nav">
+                <span class="part-one">Gard</span><span class="part-two">Form</span>
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Calculator Gard</a>
+                <a href="despre.html" class="active">Despre Noi</a>
+            </div>
+        </div>
+    </nav>
+
     <header>
         <h1>Despre GardForm</h1>
-        <div class="nav-back">
-            <a href="index.html" class="nav-link">&larr; Înapoi la Calculatorul de Garduri</a>
-        </div>
+        <p>Calitate industrială și suport tehnic în județul Prahova</p>
     </header>
 
     <div class="container">
         
-        <div class="content-box">
-            <h2>Cine Suntem?</h2>
-            <p>
-                Născut din pasiune pentru construcții solide și detalii geometrice impecabile, brandul <strong>GardForm</strong> își desfășoară activitatea în localitatea Starchiojd, județul Prahova. Ne specializăm în furnizarea și operarea cu sisteme premium de matrițe din plastic industrial <strong>ABS HIMPACT (4mm)</strong> pentru turnarea gardurilor din beton.
-            </p>
+        <div class="fade-in-section">
+            <div class="section-title">Cine Suntem?</div>
+            <div class="content-block">
+                <p>Născut din pasiune pentru construcții solide și detalii geometrice impecabile, brandul <strong>GardForm</strong> își desfășoară activitatea în localitatea Starchiojd, județul Prahova. Ne specializăm în furnizarea și operarea cu sisteme premium de matrițe din plastic industrial <strong>ABS HIMPACT (4mm)</strong> pentru turnarea gardurilor din beton.</p>
+            </div>
         </div>
 
-        <div class="content-box">
-            <h2>Standardele Noastre de Producție</h2>
-            <p>
-                Toate elementele turnate prin intermediul formelor noastre respectă cele mai riguroase standarde din sectorul construcțiilor:
-            </p>
-            <ul>
-                <li><strong>Rezistență la Decofrare:</strong> Structura flexibilă și finisajul lucios permit sute de cicluri de utilizare fără degradarea modelului structural.</li>
-                <li><strong>Fidelitate Maximă:</strong> Fiecare placă redă milimetric detaliile texturilor de tip piatră spartă, piatră-val sau cărămidă clasică.</li>
-                <li><strong>Dimensiuni Exacte:</strong> Toleranță zero la îmbinări, asigurând o glisare perfectă a panourilor de 4 cm grosime în canelurile stâlpilor de susținere.</li>
-            </ul>
+        <div class="fade-in-section">
+            <div class="section-title">Standardele Noastre de Producție</div>
+            <div class="content-block">
+                <p style="margin-bottom: 25px; color: var(--text-muted);">Toate elementele turnate prin intermediul formelor noastre respectă cele mai riguroase standarde din sectorul construcțiilor:</p>
+                
+                <ul class="standards-list">
+                    <li>
+                        <strong>Rezistență la Decofrare</strong>
+                        Structura flexibilă și finisajul lucios permit sute de cicluri de utilizare fără degradarea modelului structural.
+                    </li>
+                    <li>
+                        <strong>Fidelitate Maximă</strong>
+                        Fiecare placă redă milimetric detaliile texturilor de tip piatră spartă, piatră-val sau cărămidă clasică.
+                    </li>
+                    <li>
+                        <strong>Dimensiuni Exacte</strong>
+                        Toleranță zero la îmbinări, asigurând o glisare perfectă a panourilor de 4 cm grosime în canelurile stâlpilor de susținere.
+                    </li>
+                </ul>
+            </div>
         </div>
 
-        <div class="content-box">
-            <h2>Livrare și Logistică</h2>
-            <p>
-                Asigurăm consultanță tehnică completă pe parcursul proiectului dumneavoastră. Configurațiile calculate pe prima pagină a site-ului sunt analizate direct de echipa noastră, oferind suport personalizat pentru necesarul de ciment, armătură și agregate optim fiecărui tip de sol din regiunea Prahova.
-            </p>
+        <div class="fade-in-section">
+            <div class="section-title">Livrare și Logistică</div>
+            <div class="content-block">
+                <p>Asigurăm consultanță tehnică completă pe parcursul proiectului dumneavoastră. Configurațiile calculate pe prima pagină a site-ului sunt analizate direct de echipa noastră, oferind suport personalizat pentru necesarul de ciment, armătură și agregate optim fiecărui tip de sol din regiunea Prahova.</p>
+            </div>
         </div>
 
     </div>
 
+    <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
+
     <footer>
-        &copy; 2026 GardForm. Toate drepturile rezervate. Calitate industrială garantată.
+        &copy; 2026 GardForm. Toate drepturile rezervate. | Soluții Pro pentru Producția de Garduri din Beton.
     </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            initScrollAnimations();
+            
+            // Monitorizare scroll pentru butonul Scroll To Top
+            window.onscroll = function() {
+                let btn = document.getElementById("scrollTopBtn");
+                if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                    btn.style.display = "flex";
+                } else {
+                    btn.style.display = "none";
+                }
+            };
+        });
+
+        // MECANISMUL DE ANIMATIE LA SCROLL (FADE-IN)
+        function initScrollAnimations() {
+            let sections = document.querySelectorAll('.fade-in-section');
+            
+            let observerOptions = {
+                root: null,
+                threshold: 0.1,
+                rootMargin: "0px 0px -40px 0px"
+            };
+
+            let observer = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(function(section) {
+                observer.observe(section);
+            });
+        }
+
+        function scrollToTop() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+    </script>
 
 </body>
 </html>
