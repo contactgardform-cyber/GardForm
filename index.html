@@ -107,7 +107,7 @@
             display: block;
             object-fit: contain;
             background: transparent !important;
-            filter: drop-shadow(0px 4px 12px rgba(255, 255, 255, 0.08)); 
+            filter: drop-shadow(0px 4px 12px rgba(255, 255, 255, 0.08));
         }
 
         header p {
@@ -215,7 +215,7 @@
         }
 
         input:focus, select:focus { 
-            outline: none; 
+            outline: none;
             border-color: var(--accent-blue); 
             box-shadow: 0 0 8px rgba(0, 113, 227, 0.4);
         }
@@ -224,12 +224,12 @@
         .btn-calc:hover { background-color: #0077ed; }
         
         .result-panel { 
-            margin-top: 25px; 
+            margin-top: 25px;
             padding: 25px; 
             background: rgba(0, 113, 227, 0.1); 
             border-left: 4px solid var(--accent-blue); 
             border-radius: 0 8px 8px 0; 
-            display: none; 
+            display: none;
             animation: fadeInSimple 0.4s ease-out forwards;
         }
         
@@ -366,7 +366,7 @@
         }
 
         textarea:focus { 
-            outline: none; 
+            outline: none;
             border-color: var(--accent-blue);
             box-shadow: 0 0 8px rgba(0, 113, 227, 0.4);
         }
@@ -452,7 +452,6 @@
 
     <header>
         <div class="header-logo-box">
-            <!-- URL LOGO ACTUALIZAT -->
             <img src="logo.png" alt="GardForm Logo" class="header-logo-img">
         </div>
         <p>Garduri din Beton Armat Turnate Profesional în Matrițe de Înaltă Definiție</p>
@@ -460,16 +459,16 @@
 
     <div class="container">
         
-        <!-- 1. SPECIFICAȚII TEHNICE (CU IMAGINI ACTUALIZATE) -->
+        <!-- 1. SPECIFICAȚII TEHNICE -->
         <div class="fade-in-section">
             <div class="section-title">Modele Garduri din Beton</div>
             <div class="grid-produse">
                 
+                <!-- PRODUS 1: PIATRA BOLOVAN -->
                 <div class="card-produs">
-                    <!-- IMAGINE ACTUALIZATĂ: POZA1.JPG -->
-                    <div class="produs-imagine" style="background-image: url('C:/Users/nicso/Site Garduri/Site_Garduri_Files/poza1.jpg');"></div>
+                    <div class="produs-imagine" style="background-image: url('Model – Piatra Bolovan 2025.jpeg');"></div>
                     <div class="produs-info">
-                        <h3>Gard Beton - Model Piatră Spartă (50cm)</h3>
+                        <h3>Gard Beton - Model Piatră Bolovan 2025</h3>
                         <p>Plăci masive de beton cu finisaj dens, textură profundă tip piatră de munte și o rezistență structurală deosebită.</p>
                         <div class="produs-detalii">
                             <strong>Structură:</strong> Beton premium cu armătură internă<br>
@@ -479,29 +478,30 @@
                     </div>
                 </div>
 
+                <!-- PRODUS 2: MODEL BEST -->
                 <div class="card-produs">
-                    <!-- IMAGINE ACTUALIZATĂ: POZA2.JPG -->
-                    <div class="produs-imagine" style="background-image: url('C:/Users/nicso/Site Garduri/Site_Garduri_Files/poza2.jpg');"></div>
+                    <div class="produs-imagine" style="background-image: url('Model - Best.png');"></div>
                     <div class="produs-info">
-                        <h3>Gard Beton - Model Clasic (30cm)</h3>
-                        <p>Panouri liniare moderne sau tip cărămidă, perfect compactate prin vibrare. Oferă un design curat și elegant curții tale.</p>
+                        <h3>Gard Beton - Model Best</h3>
+                        <p>Model deosebit ce îmbină elegant inserțiile moderne cu valuri texturate și aspectul de piatră cioplită. Un design de top care oferă un impact vizual 3D spectaculos.</p>
                         <div class="produs-detalii">
-                            <strong>Structură:</strong> Beton premium cu armătură internă<br>
-                            <strong>Dimensiuni placă:</strong> 200cm x 30cm<br>
+                            <strong>Structură:</strong> Beton premium rezistent turnat în matrițe ABS<br>
+                            <strong>Dimensiuni placă:</strong> 200cm x 50cm<br>
                             <strong>Grosime panou:</strong> 4 cm
                         </div>
                     </div>
                 </div>
 
+                <!-- PRODUS 3: MODEL CATRINA -->
                 <div class="card-produs">
-                    <!-- IMAGINE ACTUALIZATĂ: POZA3.JPG -->
-                    <div class="produs-imagine" style="background-image: url('C:/Users/nicso/Site Garduri/Site_Garduri_Files/poza3.jpg');"></div>
+                    <div class="produs-imagine" style="background-image: url('Model - CATRINA.jpeg');"></div>
                     <div class="produs-info">
-                        <h3>Stâlpi de Susținere Gradați</h3>
-                        <p>Stâlpi din beton lăsați cu caneluri adânci de 4 cm pe ambele laturi pentru culisarea perfectă a plăcilor.</p>
+                        <h3>Gard Beton - Model CATRINA</h3>
+                        <p>Model premium cu panouri texturate și finisaj ondulat elegant în partea superioară. Oferă o estetică deosebită, rezistență sporită și intimitate totală curții tale.</p>
                         <div class="produs-detalii">
-                            <strong>Tip:</strong> Cu canelură de culisare încorporată<br>
-                            <strong>Compatibilitate înălțimi:</strong> 1.5m - 2.0m de la sol
+                            <strong>Structură:</strong> Beton premium armat turnat profesional<br>
+                            <strong>Dimensiuni placă:</strong> 200cm x 50cm<br>
+                            <strong>Grosime panou:</strong> 4 cm
                         </div>
                     </div>
                 </div>
@@ -635,7 +635,7 @@
 
     </div>
 
-    <!-- Buton discret Scroll to Top -->
+    <!-- Button discret Scroll to Top -->
     <button class="scroll-top-btn" id="scrollTopBtn" onclick="scrollToTop()">↑</button>
 
     <footer>
@@ -660,13 +660,11 @@
 
         function initScrollAnimations() {
             let sections = document.querySelectorAll('.fade-in-section');
-            
             let observerOptions = {
                 root: null,
                 threshold: 0.1,
                 rootMargin: "0px 0px -40px 0px"
             };
-
             let observer = new IntersectionObserver(function(entries, observer) {
                 entries.forEach(function(entry) {
                     if (entry.isIntersecting) {
@@ -675,7 +673,6 @@
                     }
                 });
             }, observerOptions);
-
             sections.forEach(function(section) {
                 observer.observe(section);
             });
@@ -744,9 +741,8 @@
         // CALCULATOR INTELIGENT CU PREȚURI DINAMICE
         // ==========================================
         function calculeazaConfiguratie() {
-            // MODIFICĂ AICI PRETURILE DE PRODUCȚIE CÂND TE HOTĂRĂȘTI:
-            let PRET_PER_PLACA = 60;  // Preț informativ pe placă (Ex: 60 RON)
-            let PRET_PER_STALP = 80;  // Preț informativ pe stâlp (Ex: 80 RON)
+            let PRET_PER_PLACA = 60;
+            let PRET_PER_STALP = 80;
 
             let hPlaca = parseInt(document.getElementById("tipPlaca").value);
             let hGard = parseFloat(document.getElementById("inaltimeGard").value);
@@ -760,19 +756,15 @@
             let whatsappLink = document.getElementById("whatsappLink");
 
             if(lungime > 0) {
-                let traveeNecesare = Math.ceil(lungime / 2); 
+                let traveeNecesare = Math.ceil(lungime / 2);
                 let stalpiNecesari = traveeNecesare + 1;
                 
-                // Calculul plăcilor pe înălțime
                 let placiPeInaltime = (hPlaca === 50) ? (hGard === 1.5 ? 3 : 4) : (hGard === 1.5 ? 5 : 7);
                 let totalPlaciDeTurnat = traveeNecesare * placiPeInaltime;
                 
-                // CALCULUL COSTURILOR PENTRU MATERIALE
                 let costTotalPlaci = totalPlaciDeTurnat * PRET_PER_PLACA;
                 let costTotalStalpi = stalpiNecesari * PRET_PER_STALP;
                 let costTotalMateriale = costTotalPlaci + costTotalStalpi;
-                
-                // CALCULUL TRANSPORTULUI INTELIGENT
                 let costTransport = 0;
                 let tipTransportText = "";
 
@@ -783,20 +775,16 @@
                     costTransport = 200;
                     tipTransportText = "Livrare locală în Prahova (Estimativ 200 RON)";
                 } else if (optiuneSelectata === "tara") {
-                    // Dacă proiectul depășește 60 de plăci, sistemul marchează automat ca Transport Greu
                     if (totalPlaciDeTurnat <= 60) {
-                        costTransport = 1200; 
+                        costTransport = 1200;
                         tipTransportText = "Livrare în toată țara pentru Garduri/Plăci Beton (Transport Mediu - Estimativ 1200 RON)";
                     } else {
-                        costTransport = 1200; 
+                        costTransport = 1200;
                         tipTransportText = "Livrare în toată țara pentru Garduri/Plăci Beton (Transport Greu Camion - Estimativ 1200 RON)";
                     }
                 }
 
-                // TOTALUL GENERAL PE CARE IL VEDE CLIENTUL
                 let totalGeneralProiect = costTotalMateriale + costTransport;
-                
-                // Afișarea raportului complet cu prețuri pe site
                 let textAfisat = "<strong>Calcul Deviz Estimativ Gard:</strong><br>" +
                                  "• Lungime totală gard: " + lungime + " metri liniari<br>" +
                                  "• Înălțime selectată de la sol: " + hGard + " metri<br>" +
@@ -810,10 +798,9 @@
                                  "<small style='color:var(--text-muted);'>(*Prețul include materialele premium și livrarea directă din fabrică)</small>";
                 
                 textRezultat.innerHTML = textAfisat;
-                
-                // Configurare mesaj text formatat pentru WhatsApp Link
+             
                 let numarTelefon = "33770391516";
-                let mesajWhatsApp = "Salut GardForm! Am generat o configurație și sunt de acord cu prețul estimat de pe site:\n\n" +
+                let mesajWhatsApp = "Salut GardForm!\nAm generat o configurație și sunt de acord cu prețul estimat de pe site:\n\n" +
                                     "- Lungime proiect: " + lungime + " metri liniari\n" +
                                     "- Înălțime selectată: " + hGard + " metri (Panouri de " + hPlaca + " cm)\n" +
                                     "- Necesar calculat: " + totalPlaciDeTurnat + " plăci și " + stalpiNecesari + " stâlpi\n" +
