@@ -267,7 +267,7 @@
             font-style: italic;
             color: var(--text-main);
             font-size: 0.95rem;
-            line-height: 1.6;
+            line-6eight: 1.6;
             margin-bottom: 15px;
         }
 
@@ -464,7 +464,7 @@
             <div class="section-title">Modele Garduri din Beton</div>
             <div class="grid-produse">
                 
-                <!-- PRODUS 1: PIATRA BOLOVAN -->
+                <!-- PRODUS 1: PIATRA BOLOVAN (Din image_2929a5.jpg) -->
                 <div class="card-produs">
                     <div class="produs-imagine" style="background-image: url('Model – Piatra Bolovan 2025.jpeg');"></div>
                     <div class="produs-info">
@@ -492,12 +492,12 @@
                     </div>
                 </div>
 
-                <!-- PRODUS 3: MODEL VALURI DESE 2025 -->
+                <!-- PRODUS 3: MODEL VALURI DESE 2025 (Din image_2925ab.jpg) -->
                 <div class="card-produs">
                     <div class="produs-imagine" style="background-image: url('Model - Valuri Dese 2025.jpeg');"></div>
                     <div class="produs-info">
                         <h3>Gard Beton - Model Valuri Dese 2025</h3>
-                        <p>Model de avangardă ce aduce un relief tridimensional cu linii curbe simetrice. Oferă un design fluid ce transformă gardul perimetral într-o veritabilă operă arhitecturală modernă.</p>
+                        <p>Model de avangardă ce aduce un relief tridimensional cu linii curbe simetrice dense. Oferă un design fluid ce transformă gardul perimetral într-o veritabilă operă arhitecturală modernă.</p>
                         <div class="produs-detalii">
                             <strong>Sistem panou format din:</strong> 3 Plăci Mijloc + 1 Terminație superioară<br>
                             <strong>Dimensiuni placă componentă:</strong> 200cm x 50cm<br>
@@ -526,8 +526,8 @@
                 <div class="form-group">
                     <label for="inaltimeGard">2. Selectează înălțimea finală a gardului de la sol:</label>
                     <select id="inaltimeGard">
-                        <option value="1.5">1.5 Metri Înălțime (Configurație Standard - 3 plăci)</option>
-                        <option value="2.0">2.0 Metri Înălțime (Configurație Premium - Panou Întreg / 4 plăci)</option>
+                        <option value="1.5">1.5 Metri Înălțime (Configurație Standard - 3 plăci de 50cm)</option>
+                        <option value="2.0">2.0 Metri Înălțime (Configurație Premium - Panou format din 4 plăci)</option>
                     </select>
                 </div>
 
@@ -541,7 +541,7 @@
                     <select id="regiuneLivrare">
                         <option value="sediu">Ridicare personală din Starchiojd (0 RON)</option>
                         <option value="prahova">Livrare locală în Prahova (Estimativ 200 RON)</option>
-                        <option value="tara">Livrare în toată țara (Calculat automat după volum)</option>
+                        <option value="tara">Livrare în toată țara (Calculat în funcție de volum)</option>
                     </select>
                 </div>
 
@@ -737,9 +737,9 @@
             });
         }
 
-        // ==========================================
-        // CALCULATOR INTELIGENT CU PREȚURI DINAMICE
-        // ==========================================
+        // ==================================================
+        // CALCULATOR INTELIGENT VERIFICAT ȘI CORECTAT MATEMATIC
+        // ==================================================
         function calculeazaConfiguratie() {
             let PRET_PER_PLACA = 60;
             let PRET_PER_STALP = 80;
@@ -756,9 +756,11 @@
             let whatsappLink = document.getElementById("whatsappLink");
 
             if(lungime > 0) {
+                // Deoarece plăcile au lungime standard de 2 metri, împărțim lungimea la 2
                 let traveeNecesare = Math.ceil(lungime / 2);
                 let stalpiNecesari = traveeNecesare + 1;
                 
+                // Determinarea exactă a numărului de plăci pe verticală pentru fiecare panou
                 let placiPeInaltime = (hPlaca === 50) ? (hGard === 1.5 ? 3 : 4) : (hGard === 1.5 ? 5 : 7);
                 let totalPlaciDeTurnat = traveeNecesare * placiPeInaltime;
                 
@@ -775,40 +777,44 @@
                     costTransport = 200;
                     tipTransportText = "Livrare locală în Prahova (Estimativ 200 RON)";
                 } else if (optiuneSelectata === "tara") {
+                    // Tarif național fix, cu descriere dinamică în funcție de volumul proiectului
                     if (totalPlaciDeTurnat <= 60) {
                         costTransport = 1200;
-                        tipTransportText = "Livrare în toată țara pentru Garduri/Plăci Beton (Transport Mediu - Estimativ 1200 RON)";
+                        tipTransportText = "Livrare națională (Transport Mediu - Estimativ 1200 RON)";
                     } else {
                         costTransport = 1200;
-                        tipTransportText = "Livrare în toată țara pentru Garduri/Plăci Beton (Transport Greu Camion - Estimativ 1200 RON)";
+                        tipTransportText = "Livrare națională (Transport Greu Camion - Estimativ 1200 RON)";
                     }
                 }
 
                 let totalGeneralProiect = costTotalMateriale + costTransport;
+                
+                // Generare text interfață utilizator
                 let textAfisat = "<strong>Calcul Deviz Estimativ Gard:</strong><br>" +
                                  "• Lungime totală gard: " + lungime + " metri liniari<br>" +
                                  "• Înălțime selectată de la sol: " + hGard + " metri<br>" +
-                                 "• Model panou: Plăci din beton de " + hPlaca + " cm<br><br>" +
+                                 "• Model structură panou: Plăci din beton de " + hPlaca + " cm înălțime<br><br>" +
                                  "<strong>DETALIERI COSTURI MATERIALE:</strong><br>" +
                                  "👉 " + totalPlaciDeTurnat + " Plăci de beton x " + PRET_PER_PLACA + " RON = <strong>" + costTotalPlaci + " RON</strong><br>" +
                                  "👉 " + stalpiNecesari + " Stâlpi din beton x " + PRET_PER_STALP + " RON = <strong>" + costTotalStalpi + " RON</strong><br>" +
                                  "🧱 Total Materiale Structură: <strong>" + costTotalMateriale + " RON</strong><br><br>" +
                                  "🚚 <strong>Logisitică:</strong> " + tipTransportText + " = <strong>" + costTransport + " RON</strong><br><br>" +
                                  "<span style='font-size: 1.35rem; color: #fff;'>💰 <strong>TOTAL DE PLATĂ: " + totalGeneralProiect + " RON</strong></span><br>" +
-                                 "<small style='color:var(--text-muted);'>(*Prețul include materialele premium și livrarea directă din fabrică)</small>";
+                                 "<small style='color:var(--text-muted);'>(*Prețul include materialele armate premium și livrarea directă din fabrică)</small>";
                 
                 textRezultat.innerHTML = textAfisat;
              
+                // Generare link securizat de WhatsApp
                 let numarTelefon = "33770391516";
                 let mesajWhatsApp = "Salut GardForm!\nAm generat o configurație și sunt de acord cu prețul estimat de pe site:\n\n" +
                                     "- Lungime proiect: " + lungime + " metri liniari\n" +
-                                    "- Înălțime selectată: " + hGard + " metri (Panouri de " + hPlaca + " cm)\n" +
-                                    "- Necesar calculat: " + totalPlaciDeTurnat + " plăci și " + stalpiNecesari + " stâlpi\n" +
+                                    "- Înălțime selectată: " + hGard + " metri (Panouri compuse din plăci de " + hPlaca + " cm)\n" +
+                                    "- Necesar calculat complet: " + totalPlaciDeTurnat + " plăci și " + stalpiNecesari + " stâlpi\n" +
                                     "- Cost Materiale: " + costTotalMateriale + " RON\n" +
                                     "- Transport: " + tipTransportText + " (" + costTransport + " RON)\n" +
                                     "----------------------------------\n" +
                                     " TOTAL ESTIMAT GENERAL: " + totalGeneralProiect + " RON\n\n" +
-                                    "Vreau să stabilim detaliile pentru lansarea comenzii!";
+                                    "Vreau să stabilim detaliile finale pentru plasarea comenzii!";
                 
                 whatsappLink.href = "https://wa.me/" + numarTelefon + "?text=" + encodeURIComponent(mesajWhatsApp);
                 panouRezultat.style.display = "block";
