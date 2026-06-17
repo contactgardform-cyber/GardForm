@@ -267,7 +267,7 @@
             font-style: italic;
             color: var(--text-main);
             font-size: 0.95rem;
-            line-6eight: 1.6;
+            line-height: 1.6;
             margin-bottom: 15px;
         }
 
@@ -464,7 +464,7 @@
             <div class="section-title">Modele Garduri din Beton</div>
             <div class="grid-produse">
                 
-                <!-- PRODUS 1: PIATRA BOLOVAN (Din image_2929a5.jpg) -->
+                <!-- PRODUS 1: PIATRA BOLOVAN -->
                 <div class="card-produs">
                     <div class="produs-imagine" style="background-image: url('Model – Piatra Bolovan 2025.jpeg');"></div>
                     <div class="produs-info">
@@ -492,12 +492,12 @@
                     </div>
                 </div>
 
-                <!-- PRODUS 3: MODEL VALURI DESE 2025 (Din image_2925ab.jpg) -->
+                <!-- PRODUS 3: MODEL CATERINA (Corectat denumire imagine) -->
                 <div class="card-produs">
-                    <div class="produs-imagine" style="background-image: url('Model - Valuri Dese 2025.jpeg');"></div>
+                    <div class="produs-imagine" style="background-image: url('Model - Caterina.jpeg');"></div>
                     <div class="produs-info">
-                        <h3>Gard Beton - Model Valuri Dese 2025</h3>
-                        <p>Model de avangardă ce aduce un relief tridimensional cu linii curbe simetrice dense. Oferă un design fluid ce transformă gardul perimetral într-o veritabilă operă arhitecturală modernă.</p>
+                        <h3>Gard Beton - Model Caterina</h3>
+                        <p>Model de avangardă de o eleganță aparte, recunoscut pentru relieful său tridimensional fin realizat prin linii curbe simetrice dinamice. Ideal pentru arhitecturi moderne rezidențiale.</p>
                         <div class="produs-detalii">
                             <strong>Sistem panou format din:</strong> 3 Plăci Mijloc + 1 Terminație superioară<br>
                             <strong>Dimensiuni placă componentă:</strong> 200cm x 50cm<br>
@@ -643,7 +643,6 @@
     </footer>
 
     <script>
-        // INITIALIZARE LA INCARCAREA PAGINII
         document.addEventListener("DOMContentLoaded", function() {
             afiseazaReviewsSalvate();
             initScrollAnimations();
@@ -737,9 +736,6 @@
             });
         }
 
-        // ==================================================
-        // CALCULATOR INTELIGENT VERIFICAT ȘI CORECTAT MATEMATIC
-        // ==================================================
         function calculeazaConfiguratie() {
             let PRET_PER_PLACA = 60;
             let PRET_PER_STALP = 80;
@@ -756,11 +752,9 @@
             let whatsappLink = document.getElementById("whatsappLink");
 
             if(lungime > 0) {
-                // Deoarece plăcile au lungime standard de 2 metri, împărțim lungimea la 2
                 let traveeNecesare = Math.ceil(lungime / 2);
                 let stalpiNecesari = traveeNecesare + 1;
                 
-                // Determinarea exactă a numărului de plăci pe verticală pentru fiecare panou
                 let placiPeInaltime = (hPlaca === 50) ? (hGard === 1.5 ? 3 : 4) : (hGard === 1.5 ? 5 : 7);
                 let totalPlaciDeTurnat = traveeNecesare * placiPeInaltime;
                 
@@ -777,7 +771,6 @@
                     costTransport = 200;
                     tipTransportText = "Livrare locală în Prahova (Estimativ 200 RON)";
                 } else if (optiuneSelectata === "tara") {
-                    // Tarif național fix, cu descriere dinamică în funcție de volumul proiectului
                     if (totalPlaciDeTurnat <= 60) {
                         costTransport = 1200;
                         tipTransportText = "Livrare națională (Transport Mediu - Estimativ 1200 RON)";
@@ -789,7 +782,6 @@
 
                 let totalGeneralProiect = costTotalMateriale + costTransport;
                 
-                // Generare text interfață utilizator
                 let textAfisat = "<strong>Calcul Deviz Estimativ Gard:</strong><br>" +
                                  "• Lungime totală gard: " + lungime + " metri liniari<br>" +
                                  "• Înălțime selectată de la sol: " + hGard + " metri<br>" +
@@ -804,7 +796,6 @@
                 
                 textRezultat.innerHTML = textAfisat;
              
-                // Generare link securizat de WhatsApp
                 let numarTelefon = "33770391516";
                 let mesajWhatsApp = "Salut GardForm!\nAm generat o configurație și sunt de acord cu prețul estimat de pe site:\n\n" +
                                     "- Lungime proiect: " + lungime + " metri liniari\n" +
