@@ -494,7 +494,8 @@
 
                 <!-- PRODUS 3: MODEL VALURI DESE 2025 -->
                 <div class="card-produs">
-                    <div class="produs-imagine" style="background-image: url('Model - Valuri Dese 2025.jpeg');"></div>
+                    <!-- CORECCȚIE: Denumire actualizată fără cratimă conform imaginii tale din folder -->
+                    <div class="produs-imagine" style="background-image: url('Model Valuri Dese 2025.jpg');"></div>
                     <div class="produs-info">
                         <h3>Gard Beton - Model Valuri Dese 2025</h3>
                         <p>Model de avangardă ce aduce un relief fluid cu linii curbe simetrice dense. Oferă un design modern ce transformă curtea într-o veritabilă operă arhitecturală contemporană.</p>
@@ -515,7 +516,6 @@
             <div class="configuratior-box">
                 <p style="color: var(--text-muted); margin-bottom: 25px;">Introdu dimensiunile curții tale pentru a calcula numărul exact de plăci (turnate în matrițe de 50 cm), stâlpi, costul materialelor și livrarea din Starchiojd.</p>
 
-                <!-- ADAUGAT: SELECTIE MODEL GARD -->
                 <div class="form-group">
                     <label for="modelGard">1. Alege modelul de gard dorit:</label>
                     <select id="modelGard">
@@ -594,7 +594,7 @@
                     <label>Notă acordată:</label>
                     <select id="notaReview">
                         <option value="★★★★★">5 Stele (Excelent)</option>
-                        <option value="★★AA">4 Stele (Bun)</option>
+                        <option value="★★★★">4 Stele (Bun)</option>
                         <option value="★★★">3 Stele (Mediu)</option>
                     </select>
                 </div>
@@ -742,7 +742,6 @@
             let PRET_PER_PLACA = 60;
             let PRET_PER_STALP = 80;
 
-            // Preluare model selectat
             let modelSelectat = document.getElementById("modelGard").value;
             let hGard = parseFloat(document.getElementById("inaltimeGard").value);
             let lungime = parseFloat(document.getElementById("lungimeInput").value);
@@ -785,7 +784,6 @@
 
                 let totalGeneralProiect = costTotalMateriale + costTransport;
                 
-                // Modelul apare acum și în devizul din pagină
                 let textAfisat = "<strong>Calcul Deviz Estimativ Gard:</strong><br>" +
                                  "• Model selectat: <strong>" + modelSelectat + "</strong><br>" +
                                  "• Lungime totală gard: " + lungime + " metri liniari<br>" +
@@ -802,7 +800,6 @@
                 textRezultat.innerHTML = textAfisat;
              
                 let numarTelefon = "33770391516";
-                // Mesajul trimis pe WhatsApp conține acum direct denumirea modelului!
                 let mesajWhatsApp = "Salut GardForm!\nAm generat o configurație nouă de pe site:\n\n" +
                                     "- Model gard solicitat: " + modelSelectat + "\n" +
                                     "- Lungime proiect: " + lungime + " metri liniari\n" +
